@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/_id"
+        style="@style/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:transitionName="messageId" />
+
+    <TextView
+        android:id="@+id/date"
+        style="@style/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:transitionName="messageDate" />
+
+    <TextView
+        android:id="@+id/text"
+        style="@style/big_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/_id"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:transitionName="messageText" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text"
+        android:layout_margin="16dp"
+        android:scaleType="fitCenter"
+        android:transitionName="messageImage"
+        android:visibility="gone" />
+
+</RelativeLayout>

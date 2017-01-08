@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MessageList</string>
+    <string name="delete">Delete</string>
+    <string name="try_again">Try again</string>
+</resources>
