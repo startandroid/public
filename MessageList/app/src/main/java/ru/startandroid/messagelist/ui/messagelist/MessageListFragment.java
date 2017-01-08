@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ import android.widget.ProgressBar;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -47,33 +48,67 @@ public class MessageListFragment extends Fragment implements MessageListContract
 
     @Inject
     MessageListContract.Presenter presenter;
+    final ActionMode.Callback callback = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            mode.getMenuInflater().inflate(R.menu.message_list_action_mode, menu);
+            return true;
+        }
 
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return presenter.onPrepareActionMode(mode, menu);
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.action_menu_item_delete:
+                    presenter.onActionMenuDelete();
+                    break;
+            }
+            return true;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            presenter.onDestroyActionMode();
+        }
+    };
     @Inject
     Picasso picasso;
-
     MessageListAdapter messageListAdapter;
+    final ItemTouchHelper.Callback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0,
+            ItemTouchHelper.START | ItemTouchHelper.END) {
 
+        @Override
+        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+            presenter.messageSwiped(viewHolder.getAdapterPosition());
+        }
+
+        @Override
+        public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+            return messageListAdapter.canBeSwiped(viewHolder.getAdapterPosition()) ?
+                    super.getSwipeDirs(recyclerView, viewHolder) : 0;
+        }
+    };
     @BindView(R.id.messageList)
     RecyclerView messageList;
-
     @BindView(R.id.buttonTryAgain)
     Button buttonTryAgain;
-
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
-
     @BindDimen(R.dimen.message_list_separator_height)
     int separatorHeight;
-
     private LinearLayoutManager layoutManager;
-
     private Unbinder unbinder;
     private boolean reCreate;
     private android.support.v7.view.ActionMode actionMode;
-
-    public enum DataState {
-        NONE, PROGRESS, TRY
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -212,6 +247,19 @@ public class MessageListFragment extends Fragment implements MessageListContract
         }
     }
 
+    @Override
+    public void showUndoSnackbar(final Collection<Long> ids) {
+        Snackbar snackbar = Snackbar
+                .make(getView(), R.string.message_deleted, Snackbar.LENGTH_LONG)
+                .setAction(R.string.undo, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        presenter.undoSnackbarClick(ids);
+                    }
+                });
+        snackbar.show();
+    }
+
     private void setDataStateScreen(DataState dataState) {
         switch (dataState) {
             case PROGRESS:
@@ -254,54 +302,9 @@ public class MessageListFragment extends Fragment implements MessageListContract
         }
     }
 
-
-    final ItemTouchHelper.Callback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0,
-            ItemTouchHelper.START | ItemTouchHelper.END) {
-
-        @Override
-        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        @Override
-        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-            presenter.messageSwiped(viewHolder.getAdapterPosition());
-        }
-
-        @Override
-        public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-            return messageListAdapter.canBeSwiped(viewHolder.getAdapterPosition()) ?
-                    super.getSwipeDirs(recyclerView, viewHolder) : 0;
-        }
-    };
-
-    final ActionMode.Callback callback = new ActionMode.Callback() {
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            mode.getMenuInflater().inflate(R.menu.message_list_action_mode, menu);
-            return true;
-        }
-
-        @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            return presenter.onPrepareActionMode(mode, menu);
-        }
-
-        @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.action_menu_item_delete:
-                    presenter.onActionMenuDelete();
-                    break;
-            }
-            return true;
-        }
-
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
-            presenter.onDestroyActionMode();
-        }
-    };
+    public enum DataState {
+        NONE, PROGRESS, TRY
+    }
 
 
 }

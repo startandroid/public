@@ -11,7 +11,7 @@ public class Message implements Parcelable {
     }
 
     @SerializedName("id")
-    private String id;
+    private Long id;
 
     @SerializedName("time")
     private long time;
@@ -23,11 +23,11 @@ public class Message implements Parcelable {
     private String image;
 
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -67,14 +67,14 @@ public class Message implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
+        dest.writeLong(id);
         dest.writeLong(time);
         dest.writeString(text);
         dest.writeString(image);
     }
 
     private Message(Parcel parcel) {
-        setId(parcel.readString());
+        setId(parcel.readLong());
         setTime(parcel.readLong());
         setText(parcel.readString());
         setImage(parcel.readString());

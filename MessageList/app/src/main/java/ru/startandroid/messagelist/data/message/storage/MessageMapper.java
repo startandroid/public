@@ -12,7 +12,7 @@ public class MessageMapper implements ItemMapper<Message> {
     @Override
     public Message fromCursor(Cursor cursor) {
         Message message = new Message();
-        message.setId(cursor.getString(cursor.getColumnIndex(MessagesTable.ID)));
+        message.setId(cursor.getLong(cursor.getColumnIndex(MessagesTable.ID)));
         message.setTime(cursor.getLong(cursor.getColumnIndex(MessagesTable.TIME)));
         message.setText(cursor.getString(cursor.getColumnIndex(MessagesTable.TEXT)));
         message.setImage(cursor.getString(cursor.getColumnIndex(MessagesTable.IMAGE)));

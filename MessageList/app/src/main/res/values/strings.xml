@@ -2,4 +2,6 @@
     <string name="app_name">MessageList</string>
     <string name="delete">Delete</string>
     <string name="try_again">Try again</string>
+    <string name="message_deleted">Message was deleted</string>
+    <string name="undo">Undo</string>
 </resources>

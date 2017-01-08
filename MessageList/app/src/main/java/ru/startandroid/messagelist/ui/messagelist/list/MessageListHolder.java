@@ -75,7 +75,7 @@ public class MessageListHolder extends RecyclerView.ViewHolder {
     public void bind(Message message) {
         this.message = message;
 
-        textViewId.setText(message.getId());
+        textViewId.setText(Long.toString(message.getId()));
         textViewDate.setText(FormatUtils.formatDateTime(message.getTime()));
         textViewText.setText(message.getText());
         if (!TextUtils.isEmpty(message.getImage())) {

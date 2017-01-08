@@ -93,7 +93,7 @@ public class MessageDetailsFragment extends Fragment {
         if (message == null) {
             return;
         }
-        textViewId.setText(message.getId());
+        textViewId.setText(Long.toString(message.getId()));
         textViewDate.setText(FormatUtils.formatDateTime(message.getTime()));
         textViewText.setText(message.getText());
 

@@ -6,17 +6,17 @@ import java.util.HashSet;
 import rx.Observable;
 import rx.subjects.PublishSubject;
 
-public class CheckedListHelper {
+public class CheckedListHelper<T> {
 
-    private final Collection<String> checkedList = new HashSet<>();
-    private CheckedChecker checkedChecker;
+    private final Collection<T> checkedList = new HashSet<>();
+    private CheckedChecker<T> checkedChecker;
     private final PublishSubject<Integer> checkedCountSubject = PublishSubject.create();
 
-    public boolean isChecked(String id) {
+    public boolean isChecked(T id) {
         return checkedList.contains(id);
     }
 
-    public void setChecked(String id, boolean checked) {
+    public void setChecked(T id, boolean checked) {
         if (checked) {
             checkedList.add(id);
         } else {
@@ -25,7 +25,7 @@ public class CheckedListHelper {
         countChanged();
     }
 
-    public void toggleChecked(String id) {
+    public void toggleChecked(T id) {
         setChecked(id, !isChecked(id));
     }
 
@@ -59,7 +59,7 @@ public class CheckedListHelper {
         return checkedCountSubject.asObservable();
     }
 
-    public Collection<String> getCheckedIdList() {
+    public Collection<T> getCheckedIdList() {
         return new HashSet<>(checkedList);
     }
 }

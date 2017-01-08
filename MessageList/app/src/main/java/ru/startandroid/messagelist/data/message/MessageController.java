@@ -1,15 +1,24 @@
 package ru.startandroid.messagelist.data.message;
 
+import android.content.ContentValues;
+
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import ru.startandroid.messagelist.app.Constants;
 import ru.startandroid.messagelist.storage.Preferences;
 import ru.startandroid.messagelist.storage.database.ItemDatabaseRepository;
 import ru.startandroid.messagelist.storage.database.MessagesTable;
 import ru.startandroid.messagelist.storage.database.specification.SqlSpecificationRaw;
+import ru.startandroid.messagelist.storage.database.specification.SqlSpecificationUpdate;
+import ru.startandroid.messagelist.storage.database.specification.SqlSpecificationWhere;
 import ru.startandroid.messagelist.storage.database.specification.SqlSpecificationWhereByValue;
 import ru.startandroid.messagelist.storage.database.specification.SqlSpecificationWhereByValues;
+import ru.startandroid.messagelist.utils.CollectionUtils;
 import ru.startandroid.messagelist.web.ApiService;
 import rx.Completable;
 import rx.Observable;
@@ -46,12 +55,24 @@ public class MessageController {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Completable deleteMessage(String id) {
-        return Observable.just(id)
-                .map(new Func1<String, Void>() {
+    public Completable markDeleted(Collection<Long> ids, boolean deleted) {
+        ContentValues cv = new ContentValues(1);
+        cv.put(MessagesTable.DELETED, deleted ? Constants.DATABASE_TRUE : Constants.DATABASE_FALSE);
+        return updateMessages(ids, cv);
+    }
+
+    private Completable updateMessages(Collection<Long> ids, ContentValues cv) {
+        List<String> stringIds = new ArrayList<>(ids.size());
+        for (Long id : ids) {
+            stringIds.add(Long.toString(id));
+        }
+        SqlSpecificationUpdate sqlSpecificationUpdate = new SqlSpecificationUpdate(cv, new SqlSpecificationWhereByValues(MessagesTable.ID, stringIds));
+
+        return Observable.just(sqlSpecificationUpdate)
+                .map(new Func1<SqlSpecificationUpdate, Void>() {
                     @Override
-                    public Void call(String id) {
-                        messageRepository.delete(new SqlSpecificationWhereByValue(MessagesTable.ID, id));
+                    public Void call(SqlSpecificationUpdate sqlSpecificationUpdate) {
+                        messageRepository.update(sqlSpecificationUpdate);
                         return null;
                     }
                 })
@@ -60,12 +81,13 @@ public class MessageController {
                 .toCompletable();
     }
 
-    public Completable deleteMessage(Collection<String> ids) {
-        return Observable.just(ids)
-                .map(new Func1<Collection<String>, Void>() {
+    public Completable deleteMarkedMessages() {
+        SqlSpecificationWhere specification = new SqlSpecificationWhereByValue(MessagesTable.DELETED, Integer.toString(Constants.DATABASE_TRUE));
+        return Observable.just(specification)
+                .map(new Func1<SqlSpecificationWhere, Void>() {
                     @Override
-                    public Void call(Collection<String> ids) {
-                        messageRepository.delete(new SqlSpecificationWhereByValues(MessagesTable.ID, ids));
+                    public Void call(SqlSpecificationWhere specification) {
+                        messageRepository.delete(specification);
                         return null;
                     }
                 })

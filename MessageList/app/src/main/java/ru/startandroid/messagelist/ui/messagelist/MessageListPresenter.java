@@ -5,6 +5,7 @@ import android.view.Menu;
 
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import retrofit2.adapter.rxjava.HttpException;
@@ -18,6 +19,7 @@ import ru.startandroid.messagelist.storage.Preferences;
 import ru.startandroid.messagelist.ui.base.PresenterBase;
 import ru.startandroid.messagelist.ui.messagelist.list.CheckedListHelper;
 import ru.startandroid.messagelist.ui.messagelist.list.MessageListHolder;
+import ru.startandroid.messagelist.utils.CollectionUtils;
 import ru.startandroid.messagelist.utils.clicks.Click;
 import rx.Subscription;
 import rx.functions.Action0;
@@ -144,7 +146,7 @@ public class MessageListPresenter extends PresenterBase<MessageListContract.View
 
     @Override
     public void onActionMenuDelete() {
-        messageController.deleteMessage(checkedListHelper.getCheckedIdList()).subscribe();
+        markAsDeleted(checkedListHelper.getCheckedIdList());
         setActionModeEnabled(false);
     }
 
@@ -152,6 +154,11 @@ public class MessageListPresenter extends PresenterBase<MessageListContract.View
     public void onDestroyActionMode() {
         checkedListHelper.clear();
         actionModeEnabled = false;
+    }
+
+    @Override
+    public void undoSnackbarClick(Collection<Long> ids) {
+        messageController.markDeleted(ids, false).subscribe();
     }
 
     private void setCheckedCount(int count) {
@@ -187,7 +194,7 @@ public class MessageListPresenter extends PresenterBase<MessageListContract.View
         toggleCheckedItem(messageListHolder.getMessage().getId());
     }
 
-    private void toggleCheckedItem(String id) {
+    private void toggleCheckedItem(Long id) {
         checkedListHelper.toggleChecked(id);
     }
 
@@ -257,7 +264,18 @@ public class MessageListPresenter extends PresenterBase<MessageListContract.View
 
     @Override
     public void messageSwiped(int position) {
-        messageController.deleteMessage(messages.get(position).getId()).subscribe();
+        markAsDeleted(CollectionUtils.getSet(messages.get(position).getId()));
     }
 
+    private void markAsDeleted(Collection<Long> ids) {
+        messageController.markDeleted(ids, true).subscribe();
+        getView().showUndoSnackbar(ids);
+
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        messageController.deleteMarkedMessages().subscribe();
+    }
 }

@@ -25,7 +25,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private static final int VIEW_TYPE_TRY_AGAIN = 2;
     private static final int VIEW_TYPE_PROGRESS = 3;
 
-    private CheckedChecker checkedChecker = CheckedChecker.EMPTY;
+    private CheckedChecker<Long> checkedChecker = CheckedChecker.EMPTY;
 
     private final DataState dataStateNone = new DataStateNone();
     private final DataState dataStateProgress = new DataStateProgress();
@@ -78,7 +78,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         this.checkedChecker = checkedChecker;
     }
 
-    private boolean isChecked(String id) {
+    private boolean isChecked(Long id) {
         return checkedChecker.isChecked(id);
     }
 

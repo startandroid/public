@@ -13,6 +13,7 @@ import ru.startandroid.messagelist.BuildConfig;
 import ru.startandroid.messagelist.events.Event;
 import ru.startandroid.messagelist.events.EventBus;
 import ru.startandroid.messagelist.storage.database.specification.SqlSpecificationRaw;
+import ru.startandroid.messagelist.storage.database.specification.SqlSpecificationUpdate;
 import ru.startandroid.messagelist.storage.database.specification.SqlSpecificationWhere;
 
 public class ItemDatabaseRepository<I> {
@@ -68,6 +69,13 @@ public class ItemDatabaseRepository<I> {
             eventBus.postEvent(itemUpdatedEvent);
         }
         return ids;
+    }
+
+    public int update(SqlSpecificationUpdate sqlSpecificationUpdate)  {
+        SQLiteDatabase db = getDatabase();
+        int upd = db.update(tableName, sqlSpecificationUpdate.getContentValues(), sqlSpecificationUpdate.getWhereClause(), sqlSpecificationUpdate.getWhereArgs());
+        eventBus.postEvent(itemUpdatedEvent);
+        return upd;
     }
 
     public int delete(SqlSpecificationWhere specification)  {

@@ -3,6 +3,7 @@ package ru.startandroid.messagelist.ui.messagelist;
 import android.support.v7.view.ActionMode;
 import android.view.Menu;
 
+import java.util.Collection;
 import java.util.List;
 
 import ru.startandroid.messagelist.data.message.Message;
@@ -21,6 +22,7 @@ public interface MessageListContract {
         void invalidateActionMode();
         void setCheckedIds(CheckedChecker checkedChecker);
         void openDetails(MessageListHolder messageListHolder);
+        void showUndoSnackbar(final Collection<Long> id);
     }
 
     interface Presenter extends MvpPresenter<View> {
@@ -32,6 +34,7 @@ public interface MessageListContract {
         boolean onPrepareActionMode(ActionMode mode, Menu menu);
         void onActionMenuDelete();
         void onDestroyActionMode();
+        void undoSnackbarClick(Collection<Long> id);
     }
 
 }
