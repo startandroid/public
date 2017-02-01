@@ -100,19 +100,6 @@ public class MessageController {
         int page = preferences.getLastPage();
         SaveNewMessagesToDbAction saveNewMessagesToDbAction = new SaveNewMessagesToDbAction(page);
         return apiService.messages(page)
-                .map(new Func1<List<Message>, List<Message>>() {
-                    @Override
-                    public List<Message> call(List<Message> messages) {
-
-                        try {
-                            TimeUnit.SECONDS.sleep(7);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
-                        return messages;
-                    }
-                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(dbScheduler)
                 .doOnNext(saveNewMessagesToDbAction)
