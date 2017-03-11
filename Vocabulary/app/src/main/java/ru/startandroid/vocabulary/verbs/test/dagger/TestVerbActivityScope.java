@@ -1,4 +1,4 @@
-package ru.startandroid.vocabulary.test.dagger;
+package ru.startandroid.vocabulary.verbs.test.dagger;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -7,5 +7,5 @@ import javax.inject.Scope;
 
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
-public @interface TestActivityScope {
+public @interface TestVerbActivityScope {
 }

@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".dictionary.recordlist.ui.RecordListActivity" />
         <activity android:name=".dictionary.recorddetails.ui.RecordDetailsActivity" />
-        <activity android:name=".test.ui.TestActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".dictionary.test.ui.TestActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".verbs.test.ui.TestVerbActivity" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

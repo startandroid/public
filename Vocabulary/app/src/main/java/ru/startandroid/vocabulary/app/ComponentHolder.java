@@ -9,8 +9,8 @@ import ru.startandroid.vocabulary.app.dagger.DaggerAppComponent;
 import ru.startandroid.vocabulary.dictionary.recorddetails.dagger.RecordDetailsComponent;
 import ru.startandroid.vocabulary.dictionary.recorddetails.dagger.RecordDetailsModule;
 import ru.startandroid.vocabulary.dictionary.recordlist.dagger.RecordListComponent;
-import ru.startandroid.vocabulary.test.dagger.TestActivityComponent;
-import ru.startandroid.vocabulary.test.ui.TestActivity;
+import ru.startandroid.vocabulary.dictionary.test.dagger.TestActivityComponent;
+import ru.startandroid.vocabulary.verbs.test.dagger.TestVerbActivityComponent;
 
 public class ComponentHolder {
 
@@ -21,6 +21,8 @@ public class ComponentHolder {
     RecordListComponent recordListComponent;
     RecordDetailsComponent recordDetailsComponent;
     TestActivityComponent testActivityComponent;
+    TestVerbActivityComponent testVerbActivityComponent;
+
 
     public ComponentHolder(Context context) {
         this.context = context;
@@ -70,5 +72,20 @@ public class ComponentHolder {
     public void releaseTestActivityComponent() {
         testActivityComponent = null;
     }
+
+
+    // TestVerbActivity
+
+    public TestVerbActivityComponent getTestVerbActivityComponent() {
+        if (testVerbActivityComponent == null) {
+            testVerbActivityComponent = appComponent.createTestVerbActivityComponent();
+        }
+        return testVerbActivityComponent;
+    }
+
+    public void releaseTestVerbActivityComponent() {
+        testVerbActivityComponent = null;
+    }
+
 
 }

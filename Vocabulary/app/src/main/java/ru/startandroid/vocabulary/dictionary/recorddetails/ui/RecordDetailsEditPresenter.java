@@ -25,7 +25,7 @@ public class RecordDetailsEditPresenter extends PresenterBase<RecordDetailsContr
     @Override
     public void onSaveClick() {
         getView().fillRecord(record);
-        recordController.updateRecord(record).subscribe();
+        recordController.updateItem(record).subscribe();
         getView().closeScreen();
     }
 

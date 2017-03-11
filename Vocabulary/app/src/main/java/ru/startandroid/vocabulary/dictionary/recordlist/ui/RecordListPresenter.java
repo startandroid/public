@@ -50,7 +50,7 @@ public class RecordListPresenter extends PresenterBase<RecordListContract.View>
     private void loadRecords() {
         notLoadedYet = false;
         removeSubscription(loadSubscription);
-        loadSubscription = recordController.getRecords(new SqlSpecificationRawAllRecords()).subscribe(new Action1<List<Record>>() {
+        loadSubscription = recordController.getItems(new SqlSpecificationRawAllRecords()).subscribe(new Action1<List<Record>>() {
             @Override
             public void call(List<Record> records) {
                 data = records;

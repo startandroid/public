@@ -1,4 +1,4 @@
-package ru.startandroid.vocabulary.test.ui;
+package ru.startandroid.vocabulary.dictionary.test.ui;
 
 import ru.startandroid.vocabulary.base.mvp.MvpPresenter;
 import ru.startandroid.vocabulary.base.mvp.MvpView;

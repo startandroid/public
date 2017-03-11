@@ -11,20 +11,20 @@ public class RecordMapper implements ItemMapper<Record> {
 
     @Override
     public Record fromCursor(Cursor cursor) {
-        Record message = new Record();
-        message.setId(cursor.getLong(cursor.getColumnIndex(RecordsTable.ID)));
-        message.setWord(cursor.getString(cursor.getColumnIndex(RecordsTable.WORD)));
-        message.setTranslate(cursor.getString(cursor.getColumnIndex(RecordsTable.TRANSLATE)));
-        message.setSample(cursor.getString(cursor.getColumnIndex(RecordsTable.SAMPLE)));
-        message.setDefinition(cursor.getString(cursor.getColumnIndex(RecordsTable.DEFINITION)));
-        message.setRememberedCount(cursor.getLong(cursor.getColumnIndex(RecordsTable.REMEMBERED_COUNT)));
-        message.setAdded(cursor.getLong(cursor.getColumnIndex(RecordsTable.ADDED)));
-        return message;
+        Record record = new Record();
+        record.setId(cursor.getLong(cursor.getColumnIndex(RecordsTable.ID)));
+        record.setWord(cursor.getString(cursor.getColumnIndex(RecordsTable.WORD)));
+        record.setTranslate(cursor.getString(cursor.getColumnIndex(RecordsTable.TRANSLATE)));
+        record.setSample(cursor.getString(cursor.getColumnIndex(RecordsTable.SAMPLE)));
+        record.setDefinition(cursor.getString(cursor.getColumnIndex(RecordsTable.DEFINITION)));
+        record.setRememberedCount(cursor.getLong(cursor.getColumnIndex(RecordsTable.REMEMBERED_COUNT)));
+        record.setAdded(cursor.getLong(cursor.getColumnIndex(RecordsTable.ADDED)));
+        return record;
     }
 
     @Override
     public ContentValues toContentValues(Record item) {
-        ContentValues cv = new ContentValues(5);
+        ContentValues cv = new ContentValues(6);
         cv.put(RecordsTable.WORD, item.getWord());
         cv.put(RecordsTable.TRANSLATE, item.getTranslate());
         cv.put(RecordsTable.SAMPLE, item.getSample());

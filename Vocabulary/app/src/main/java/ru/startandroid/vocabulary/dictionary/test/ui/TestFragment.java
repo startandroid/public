@@ -1,4 +1,4 @@
-package ru.startandroid.vocabulary.test.ui;
+package ru.startandroid.vocabulary.dictionary.test.ui;
 
 import android.app.Fragment;
 import android.os.Bundle;

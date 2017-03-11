@@ -3,6 +3,7 @@ package ru.startandroid.vocabulary.app;
 public class Constants {
 
     public static final String EXTRA_RECORD = "record";
+    public static final String EXTRA_VERB = "verb";
     public static final String EXTRA_RECORD_DETAILS_ACTION = "record_details_action";
     public static final String EXTRA_ARGUMENTS = "args";
 

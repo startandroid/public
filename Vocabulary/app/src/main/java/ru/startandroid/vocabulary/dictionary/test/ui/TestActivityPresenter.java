@@ -1,4 +1,4 @@
-package ru.startandroid.vocabulary.test.ui;
+package ru.startandroid.vocabulary.dictionary.test.ui;
 
 import android.util.Log;
 
@@ -41,7 +41,7 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
     private void loadData() {
         removeSubscription(loadSubscription);
         loadSubscription = recordController
-                .getRecords(new SqlSpecificationRawAllRecords())
+                .getItems(new SqlSpecificationRawAllRecords())
                 .subscribe(new Action1<List<Record>>() {
             @Override
             public void call(List<Record> records) {
@@ -57,14 +57,14 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
     @Override
     public void onYesClick() {
         currentRecord.setRememberedCount(currentRecord.getRememberedCount() + 1);
-        recordController.updateRecord(currentRecord).subscribe();
+        recordController.updateItem(currentRecord).subscribe();
         showNextRecord();
     }
 
     @Override
     public void onNoClick() {
         currentRecord.setRememberedCount(currentRecord.getRememberedCount() - 1);
-        recordController.updateRecord(currentRecord).subscribe();
+        recordController.updateItem(currentRecord).subscribe();
         showNextRecord();
     }
 

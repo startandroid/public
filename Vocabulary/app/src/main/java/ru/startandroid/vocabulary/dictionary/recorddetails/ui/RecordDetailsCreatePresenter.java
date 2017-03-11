@@ -22,7 +22,7 @@ public class RecordDetailsCreatePresenter extends PresenterBase<RecordDetailsCon
         record = new Record();
         record.setAdded(System.currentTimeMillis());
         getView().fillRecord(record);
-        recordController.addRecord(record).subscribe();
+        recordController.addItem(record).subscribe();
         getView().closeScreen();
     }
 

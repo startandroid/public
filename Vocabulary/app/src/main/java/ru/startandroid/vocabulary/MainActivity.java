@@ -7,7 +7,8 @@ import android.os.Bundle;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.startandroid.vocabulary.dictionary.recordlist.ui.RecordListActivity;
-import ru.startandroid.vocabulary.test.ui.TestActivity;
+import ru.startandroid.vocabulary.dictionary.test.ui.TestActivity;
+import ru.startandroid.vocabulary.verbs.test.ui.TestVerbActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.dictionary)
     void onDictionaryClick() {
         RecordListActivity.start(this);
+    }
+
+    @OnClick(R.id.verbs)
+    void onVerbsClick() {
+        startActivity(new Intent(this, TestVerbActivity.class));
     }
 
 }

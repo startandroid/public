@@ -6,6 +6,8 @@ import dagger.Module;
 import dagger.Provides;
 import ru.startandroid.vocabulary.data.record.Record;
 import ru.startandroid.vocabulary.data.record.RecordController;
+import ru.startandroid.vocabulary.data.verb.Verb;
+import ru.startandroid.vocabulary.data.verb.VerbController;
 import ru.startandroid.vocabulary.events.EventBus;
 import ru.startandroid.vocabulary.storage.database.DatabaseScheduler;
 import ru.startandroid.vocabulary.storage.database.ItemDatabaseRepository;
@@ -33,6 +35,14 @@ public class AppModule {
                                              @DatabaseScheduler Scheduler dbScheduler,
                                              ItemMapper<Record> recordMapper) {
         return new RecordController(recordRepository, dbScheduler, recordMapper);
+    }
+
+    @Provides
+    @AppScope
+    VerbController provideVerbController(ItemDatabaseRepository<Verb> verbRepository,
+                                           @DatabaseScheduler Scheduler dbScheduler,
+                                           ItemMapper<Verb> verbMapper) {
+        return new VerbController(verbRepository, dbScheduler, verbMapper);
     }
 
     @AppScope
