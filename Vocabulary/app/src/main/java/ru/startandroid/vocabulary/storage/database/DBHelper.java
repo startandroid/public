@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "database.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     Context mContext;
 
@@ -37,7 +37,18 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // TODO use transaction?
+        update_2(db, oldVersion);
         // do nothing
+    }
+
+    private void update_2(SQLiteDatabase db, int oldVersion) {
+        if (oldVersion >= 2) {
+            return;
+        }
+        db.execSQL(VerbsTable.CREATE_SCRIPT);
+        fillVerbsData(db);
+
     }
 
     private void fillVerbsData(SQLiteDatabase db) {
