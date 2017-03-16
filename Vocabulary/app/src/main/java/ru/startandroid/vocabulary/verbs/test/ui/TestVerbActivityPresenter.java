@@ -2,6 +2,8 @@ package ru.startandroid.vocabulary.verbs.test.ui;
 
 import android.util.Log;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -26,7 +28,7 @@ public class TestVerbActivityPresenter extends PresenterBase<TestVerbActivityCon
     private Subscription loadSubscription;
     private List<Verb> data;
     private Stack<Verb> stack;
-    Random rnd;
+    private Random rnd;
 
     public TestVerbActivityPresenter(VerbController verbController) {
         this.verbController = verbController;
@@ -60,16 +62,22 @@ public class TestVerbActivityPresenter extends PresenterBase<TestVerbActivityCon
 
     @Override
     public void onYesClick() {
-        currentRecord.setRememberedCount(currentRecord.getRememberedCount() + 1);
-        verbController.updateItem(currentRecord).subscribe();
+        changeRememberedCountInCurrent(+1);
         showNextRecord();
     }
 
     @Override
     public void onNoClick() {
-        currentRecord.setRememberedCount(currentRecord.getRememberedCount() - 1);
-        verbController.updateItem(currentRecord).subscribe();
+        changeRememberedCountInCurrent(-1);
         showNextRecord();
+    }
+
+    private void changeRememberedCountInCurrent(int value) {
+        int index = data.indexOf(currentRecord);
+        currentRecord.setRememberedCount(currentRecord.getRememberedCount() + value);
+        verbController.updateItem(currentRecord).subscribe();
+        data.set(index, currentRecord);
+        sortData();
     }
 
     private void showNextRecord() {
@@ -83,29 +91,34 @@ public class TestVerbActivityPresenter extends PresenterBase<TestVerbActivityCon
             return;
         }
 
-        if (data.size() == 1) {
-            currentRecord = data.get(0);
-            return;
+        Verb rec = null;
+
+        // usually we take the least remembered word from list
+        // but sometimes (10%) take random word
+        int useRnd = rnd.nextInt(10);
+        Log.d("qwe", "use random word ? " + useRnd);
+        if (useRnd == 5) {
+            Log.d("qwe", "use random word");
+            // will select random words
+            int index = 0;
+            do {
+                index = rnd.nextInt(data.size());
+            } while (stack.contains(data.get(index)));
+            rec = data.get(index);
+            Log.d("qwe", "use random word i = " + index + ", rec = " + rec.getFirst() + " " + rec.getRememberedCount());
+        };
+
+        if (rec == null) {
+            for (int i = 0; i < data.size(); i++) {
+                rec = data.get(i);
+                Log.d("qwe", "get from data i = " + i + ", rec = " + rec.getFirst() + " " + rec.getRememberedCount());
+                if (!stack.contains(rec)) {
+                    Log.d("qwe", "get from data break");
+                    break;
+                }
+            }
         }
-
-
-        int i1 = 0;
-        int i2 = 0;
-
-        do {
-            i1 = rnd.nextInt(data.size());
-        } while (stack.contains(data.get(i1)));
-
-        do {
-            i2 = rnd.nextInt(data.size());
-        } while (i2 == i1 || stack.contains(data.get(i2)));
-        Log.d("qwe", "random i1 = " + i1 + ", i2 = " + i2);
-
-        Verb rec1 = data.get(i1);
-        Verb rec2 = data.get(i2);
-        Log.d("qwe", "random rec1 = " + rec1.getFirst() + "(" + rec1.getRememberedCount() + ")"
-                + ", rec2 = " + rec2.getFirst() + "(" + rec2.getRememberedCount() + ")");
-        currentRecord = (rec1.getRememberedCount() < rec2.getRememberedCount()) ? rec1 : rec2;
+        currentRecord = rec;
     }
 
     private void showCurrentRecord() {
@@ -116,4 +129,16 @@ public class TestVerbActivityPresenter extends PresenterBase<TestVerbActivityCon
             getView().closeScreen();
         }
     }
+
+    private void sortData() {
+        Collections.sort(data, comparator);
+    }
+
+    Comparator<Verb> comparator = new Comparator<Verb>() {
+        @Override
+        public int compare(Verb o1, Verb o2) {
+            // TODO make rememberCount int
+            return (int) (o1.getRememberedCount() - o2.getRememberedCount());
+        }
+    };
 }

@@ -3,9 +3,11 @@ package ru.startandroid.vocabulary.verbs.test.ui;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.startandroid.vocabulary.R;
@@ -16,6 +18,9 @@ public class TestVerbActivity extends AppCompatActivity implements TestVerbActiv
 
     @Inject
     TestVerbActivityContract.Presenter presenter;
+
+    @BindView(R.id.currentRemembCount)
+    TextView textViewCurrentRemembCount;
 
     private boolean reCreate = false;
 
@@ -47,9 +52,9 @@ public class TestVerbActivity extends AppCompatActivity implements TestVerbActiv
 
     @Override
     public void showRecord(Verb record) {
-        //Toast.makeText(this, "Record " + record.getWord() + ", " + record.getRememberedCount(), Toast.LENGTH_LONG).show();
         Fragment fragment = TestVerbFragment.createInstance(record);
         getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+        textViewCurrentRemembCount.setText(Long.toString(record.getRememberedCount()));
     }
 
     @Override

@@ -1,11 +1,14 @@
 package ru.startandroid.vocabulary.dictionary.test.ui;
 
 import android.app.Fragment;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.startandroid.vocabulary.R;
@@ -16,6 +19,9 @@ public class TestActivity extends AppCompatActivity implements TestActivityContr
 
     @Inject
     TestActivityContract.Presenter presenter;
+
+    @BindView(R.id.currentRemembCount)
+    TextView textViewCurrentRemembCount;
 
     private boolean reCreate = false;
 
@@ -50,6 +56,7 @@ public class TestActivity extends AppCompatActivity implements TestActivityContr
         //Toast.makeText(this, "Record " + record.getWord() + ", " + record.getRememberedCount(), Toast.LENGTH_LONG).show();
         Fragment fragment = TestFragment.createInstance(record);
         getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+        textViewCurrentRemembCount.setText(Long.toString(record.getRememberedCount()));
     }
 
     @Override

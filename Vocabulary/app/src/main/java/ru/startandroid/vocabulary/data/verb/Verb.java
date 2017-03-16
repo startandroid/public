@@ -100,4 +100,20 @@ public class Verb implements Parcelable {
             return new Verb[i];
         }
     };
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Verb verb = (Verb) o;
+
+        return id == verb.id;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
+    }
 }
