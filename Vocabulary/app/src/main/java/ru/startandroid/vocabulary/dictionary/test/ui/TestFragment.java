@@ -65,6 +65,10 @@ public class TestFragment extends Fragment {
         if (TextUtils.isEmpty(record.getTranslate())) {
             textViewTranslate.setVisibility(View.GONE);
         }
+
+        if (TextUtils.isEmpty(record.getSample())) {
+            textViewSample.setVisibility(View.GONE);
+        }
     }
 
     private void initView(View view) {

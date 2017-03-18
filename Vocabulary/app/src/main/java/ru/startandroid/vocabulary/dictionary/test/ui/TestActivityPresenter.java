@@ -24,6 +24,7 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
     private boolean notLoadedYet = true;
     private Subscription loadSubscription;
     private List<Record> data;
+    // TODO use stack for id instead Record
     private Stack<Record> stack;
     private Random rnd;
 
@@ -50,7 +51,7 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
             public void call(List<Record> records) {
                 data = records;
                 sortData();
-                int stackSize = Math.min(10, data.size() - 1); // - Constants.RANDOM_LEVEL);
+                int stackSize = Math.min(Constants.STACK_SIZE, data.size() - 1); // - Constants.RANDOM_LEVEL);
                 stack = new Stack<>(stackSize);
                 showNextRecord();
             }
@@ -107,14 +108,22 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
         };
 
         if (rec == null) {
-            for (int i = 0; i < data.size(); i++) {
-                rec = data.get(i);
-                Log.d("qwe", "get from data i = " + i + ", rec = " + rec.getWord() + " " + rec.getRememberedCount());
-                if (!stack.contains(rec)) {
-                    Log.d("qwe", "get from data break");
-                    break;
+            while (rec == null) {
+                int index = rnd.nextInt(stack.getSize() + 1);
+                rec = data.get(index);
+                if (stack.contains(rec)) {
+                    rec = null;
                 }
             }
+
+//            for (int i = 0; i < data.size(); i++) {
+//                rec = data.get(i);
+//                Log.d("qwe", "get from data i = " + i + ", rec = " + rec.getWord() + " " + rec.getRememberedCount());
+//                if (!stack.contains(rec)) {
+//                    Log.d("qwe", "get from data break");
+//                    break;
+//                }
+//            }
         }
         currentRecord = rec;
     }

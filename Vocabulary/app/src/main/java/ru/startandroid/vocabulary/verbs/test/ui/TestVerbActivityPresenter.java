@@ -52,7 +52,7 @@ public class TestVerbActivityPresenter extends PresenterBase<TestVerbActivityCon
                     @Override
                     public void call(List<Verb> records) {
                         data = records;
-                        int stackSize = Math.min(10, data.size() - Constants.RANDOM_LEVEL);
+                        int stackSize = Math.min(Constants.STACK_SIZE, data.size() - Constants.RANDOM_LEVEL);
                         stack = new Stack<>(stackSize);
                         showNextRecord();
                     }
@@ -109,15 +109,24 @@ public class TestVerbActivityPresenter extends PresenterBase<TestVerbActivityCon
         };
 
         if (rec == null) {
-            for (int i = 0; i < data.size(); i++) {
-                rec = data.get(i);
-                Log.d("qwe", "get from data i = " + i + ", rec = " + rec.getFirst() + " " + rec.getRememberedCount());
-                if (!stack.contains(rec)) {
-                    Log.d("qwe", "get from data break");
-                    break;
+            while (rec == null) {
+                int index = rnd.nextInt(stack.getSize() + 1);
+                rec = data.get(index);
+                if (stack.contains(rec)) {
+                    rec = null;
                 }
             }
+
+//            for (int i = 0; i < data.size(); i++) {
+//                rec = data.get(i);
+//                Log.d("qwe", "get from data i = " + i + ", rec = " + rec.getWord() + " " + rec.getRememberedCount());
+//                if (!stack.contains(rec)) {
+//                    Log.d("qwe", "get from data break");
+//                    break;
+//                }
+//            }
         }
+
         currentRecord = rec;
     }
 

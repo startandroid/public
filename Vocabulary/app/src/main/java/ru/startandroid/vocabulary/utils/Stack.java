@@ -23,4 +23,7 @@ public class Stack<T> {
         return linkedList.contains(item);
     }
 
+    public int getSize() {
+        return size;
+    }
 }
