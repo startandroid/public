@@ -147,7 +147,9 @@ public class TestVerbActivityPresenter extends PresenterBase<TestVerbActivityCon
         @Override
         public int compare(Verb o1, Verb o2) {
             // TODO make rememberCount int
-            return (int) (o1.getRememberedCount() - o2.getRememberedCount());
+            return o1.getRememberedCount() < o2.getRememberedCount() ? -1 :
+                    o1.getRememberedCount() == o2.getRememberedCount() ? 0 : 1
+                    ;
         }
     };
 }

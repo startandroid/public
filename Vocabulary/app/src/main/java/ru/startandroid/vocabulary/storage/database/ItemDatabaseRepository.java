@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import ru.startandroid.vocabulary.BuildConfig;
 import ru.startandroid.vocabulary.events.Event;
 import ru.startandroid.vocabulary.events.EventBus;
+import ru.startandroid.vocabulary.events.Events;
 import ru.startandroid.vocabulary.storage.database.specification.SqlSpecificationRaw;
 import ru.startandroid.vocabulary.storage.database.specification.SqlSpecificationUpdate;
 import ru.startandroid.vocabulary.storage.database.specification.SqlSpecificationWhere;
@@ -27,6 +28,10 @@ public class ItemDatabaseRepository<I> {
     private final String tableName;
     private final EventBus eventBus;
     private final Event itemUpdatedEvent;
+
+    public ItemDatabaseRepository(SQLiteOpenHelper sqLiteOpenHelper, ItemMapper<I> itemMapper, String tableName, EventBus eventBus) {
+        this(sqLiteOpenHelper, itemMapper, tableName, eventBus, Events.EMPTY);
+    }
 
     public ItemDatabaseRepository(SQLiteOpenHelper sqLiteOpenHelper, ItemMapper<I> itemMapper, String tableName, EventBus eventBus, Event itemUpdatedEvent) {
         this.sqLiteOpenHelper = sqLiteOpenHelper;

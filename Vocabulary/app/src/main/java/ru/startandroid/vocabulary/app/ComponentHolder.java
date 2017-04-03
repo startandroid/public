@@ -10,6 +10,8 @@ import ru.startandroid.vocabulary.dictionary.recorddetails.dagger.RecordDetailsC
 import ru.startandroid.vocabulary.dictionary.recorddetails.dagger.RecordDetailsModule;
 import ru.startandroid.vocabulary.dictionary.recordlist.dagger.RecordListComponent;
 import ru.startandroid.vocabulary.dictionary.test.dagger.TestActivityComponent;
+import ru.startandroid.vocabulary.sentences.exerciselist.dagger.ExerciseListComponent;
+import ru.startandroid.vocabulary.sentences.test.dagger.TestSentencesFragmentComponent;
 import ru.startandroid.vocabulary.verbs.test.dagger.TestVerbActivityComponent;
 
 public class ComponentHolder {
@@ -22,6 +24,8 @@ public class ComponentHolder {
     RecordDetailsComponent recordDetailsComponent;
     TestActivityComponent testActivityComponent;
     TestVerbActivityComponent testVerbActivityComponent;
+    ExerciseListComponent exerciseListComponent;
+    TestSentencesFragmentComponent testSentencesFragmentComponent;
 
 
     public ComponentHolder(Context context) {
@@ -87,5 +91,29 @@ public class ComponentHolder {
         testVerbActivityComponent = null;
     }
 
+
+    // ExerciseListComponent
+    public ExerciseListComponent getExerciseListComponent() {
+        if (exerciseListComponent == null) {
+            exerciseListComponent = appComponent.createExerciseListComponent();
+        }
+        return exerciseListComponent;
+    }
+
+    public void releaseExerciseListComponent() {
+        exerciseListComponent = null;
+    }
+
+    // TestSentencesFragmentComponent
+    public TestSentencesFragmentComponent getTestSentencesFragmentComponent() {
+        if (testSentencesFragmentComponent == null) {
+            testSentencesFragmentComponent = appComponent.createTestSentencesFragmentComponent();
+        }
+        return testSentencesFragmentComponent;
+    }
+
+    public void releaseTestSentencesComponent() {
+        testSentencesFragmentComponent = null;
+    }
 
 }

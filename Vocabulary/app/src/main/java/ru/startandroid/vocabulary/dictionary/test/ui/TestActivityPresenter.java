@@ -176,7 +176,9 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
         @Override
         public int compare(Record o1, Record o2) {
             // TODO make rememberCount int
-            return (int) (o1.getRememberedCount() - o2.getRememberedCount());
+            return o1.getRememberedCount() < o2.getRememberedCount() ? -1 :
+                    o1.getRememberedCount() == o2.getRememberedCount() ? 0 : 1
+            ;
         }
     };
 }

@@ -18,8 +18,14 @@
         </activity>
         <activity android:name=".dictionary.recordlist.ui.RecordListActivity" />
         <activity android:name=".dictionary.recorddetails.ui.RecordDetailsActivity" />
-        <activity android:name=".dictionary.test.ui.TestActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".verbs.test.ui.TestVerbActivity" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".dictionary.test.ui.TestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".verbs.test.ui.TestVerbActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".sentences.exerciselist.ui.ExerciseListActivity" />
+        <activity android:name=".sentences.test.ui.TestSentencesActivity"></activity>
     </application>
 
 </manifest>

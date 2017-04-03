@@ -24,6 +24,9 @@ public class EventBus {
     }
 
     public void postEvent(Event event) {
+        if (event == Events.EMPTY) {
+            return;
+        }
         subject.onNext(event);
     }
 
