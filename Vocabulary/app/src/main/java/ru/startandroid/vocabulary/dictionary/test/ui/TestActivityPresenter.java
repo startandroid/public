@@ -95,7 +95,7 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
         // usually we take the least remembered word from list
         // but sometimes (10%) take random word
         int useRnd = rnd.nextInt(10);
-        Log.d("qwe", "use random word ? " + useRnd);
+        Log.d("qwe", "use random word ? " + (useRnd == 5));
         if (useRnd == 5) {
             Log.d("qwe", "use random word");
             // will select random words
@@ -107,7 +107,8 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
             Log.d("qwe", "use random word i = " + index + ", rec = " + rec.getWord() + " " + rec.getRememberedCount());
         };
 
-        if (rec == null) {
+        // take random from the least remembered
+        if (rec == null && useRnd < 5) {
             while (rec == null) {
                 int index = rnd.nextInt(stack.getSize() + 1);
                 rec = data.get(index);
@@ -115,15 +116,19 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
                     rec = null;
                 }
             }
+            Log.d("qwe", "use word, rec = " + rec.getWord() + " " + rec.getRememberedCount());
+        }
 
-//            for (int i = 0; i < data.size(); i++) {
-//                rec = data.get(i);
-//                Log.d("qwe", "get from data i = " + i + ", rec = " + rec.getWord() + " " + rec.getRememberedCount());
-//                if (!stack.contains(rec)) {
-//                    Log.d("qwe", "get from data break");
-//                    break;
-//                }
-//            }
+        // take the least remembered word from list
+        if (rec == null) {
+            for (int i = 0; i < data.size(); i++) {
+                rec = data.get(i);
+                Log.d("qwe", "get from data i = " + i + ", rec = " + rec.getWord() + " " + rec.getRememberedCount());
+                if (!stack.contains(rec)) {
+                    Log.d("qwe", "get from data break");
+                    break;
+                }
+            }
         }
         currentRecord = rec;
     }
@@ -170,6 +175,10 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
 
     private void sortData() {
         Collections.sort(data, comparator);
+        if (data.size() > 0) {
+            Record rec = data.get(0);
+            Log.d("qwe", "first word, rec = " + rec.getWord() + " " + rec.getRememberedCount());
+        }
     }
 
     Comparator<Record> comparator = new Comparator<Record>() {
