@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ProgressBarDrawable" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateDrawable">@mipmap/ic_launcher_round</item>
+    </style>
+
+</resources>

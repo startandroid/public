@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    // rx
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
+
+    // gson
+    compile "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
+
+    // retrofit
+    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    compile 'javax.inject:javax.inject:1'
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

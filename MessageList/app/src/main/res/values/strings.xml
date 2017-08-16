@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MessageList</string>
+    <string name="no_data">No data</string>
+    <string name="try_again">Try again</string>
+    <string name="finish">End of data</string>
+</resources>
