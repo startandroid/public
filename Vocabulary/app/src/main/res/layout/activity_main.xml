@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ru.startandroid.vocabulary.ui.main.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/vocabulary"
+            style="@style/TextViewMain"
+            android:text="@string/vocabulary" />
+
+        <TextView
+            android:id="@+id/dictionary"
+            style="@style/TextViewMain.Sub"
+            android:text="@string/dictionary" />
+
+        <TextView
+            android:id="@+id/verbs"
+            style="@style/TextViewMain"
+            android:layout_marginTop="36dp"
+            android:text="@string/vebrs" />
+
+        <ToggleButton
+            android:id="@+id/verbs_mode"
+            style="@style/TextViewMain.Sub"
+            android:textOn="@string/en_to_ru"
+            android:textOff="@string/ru_to_en"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/sentences"
+            style="@style/TextViewMain"
+            android:layout_marginTop="36dp"
+            android:text="@string/sentences" />
+
+
+    </LinearLayout>
+
+</FrameLayout>
