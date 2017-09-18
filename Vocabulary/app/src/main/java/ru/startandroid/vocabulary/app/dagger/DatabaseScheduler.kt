@@ -1,4 +1,4 @@
-package ru.startandroid.data.database
+package ru.startandroid.vocabulary.app.dagger
 
 import javax.inject.Qualifier
 

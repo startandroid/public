@@ -6,14 +6,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "25.0.3"
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion "$build_tools_version"
     defaultConfig {
         applicationId "ru.startandroid.vocabulary"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode version_code
+        versionName "$version_name"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -24,39 +24,39 @@ android {
     }
 }
 
-def butterknife_version = '8.7.0'
-def dagger_version = '2.11'
 
 dependencies {
 
     // projects
     implementation project(':data')
-
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    androidTestImplementation(deps.espressoCore, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.0.1'
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation deps.junit
+
+    implementation deps.appcompat7
+    implementation deps.support4
+    implementation deps.constraintLayout
+
 
     // butterknife
-    implementation "com.jakewharton:butterknife:$butterknife_version"
-    kapt "com.jakewharton:butterknife-compiler:$butterknife_version"
-
+    implementation deps.butterKnife
+    kapt deps.butterKnifeCompiler
 
     // rxjava
-    implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.2'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation deps.rxJava
+    implementation deps.rxAndroid
+    implementation deps.rxKotlin
 
     //dagger
-    implementation "com.google.dagger:dagger:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    implementation 'com.android.support:support-v4:26.0.1'
+    implementation deps.dagger
+    kapt deps.daggerCompiler
 
-    compile "android.arch.persistence.room:runtime:1.0.0-alpha9"
-    compile "android.arch.persistence.room:rxjava2:1.0.0-alpha9"
-    kapt "android.arch.persistence.room:compiler:1.0.0-alpha9"
+
+    compile deps.roomRuntime
+    compile deps.roomRxJava2
+    kapt deps.roomCompiler
 }

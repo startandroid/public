@@ -6,7 +6,6 @@ import dagger.Module
 import dagger.Provides
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
-import ru.startandroid.data.database.DatabaseScheduler
 import ru.startandroid.data.database.dao.AppDatabase
 import ru.startandroid.data.database.dao.WordDao
 import ru.startandroid.data.database.mapper.WordMapper
