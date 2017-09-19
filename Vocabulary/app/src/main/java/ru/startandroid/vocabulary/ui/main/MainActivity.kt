@@ -14,8 +14,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         ButterKnife.bind(this)
 
-        // TODO save radiogroup values
-
     }
 
     @OnClick(R.id.dictionary)

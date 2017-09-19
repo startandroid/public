@@ -1,49 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.startandroid.vocabulary.ui.main.MainActivity">
+    tools:context="ru.startandroid.vocabulary.ui.main.MainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/vocabulary"
+        style="@style/TextViewMain"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_marginBottom="64dp"
+        android:text="@string/vocabulary"
+        app:layout_constraintBottom_toTopOf="@+id/verbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-        <TextView
-            android:id="@+id/vocabulary"
-            style="@style/TextViewMain"
-            android:text="@string/vocabulary" />
+    <TextView
+        android:id="@+id/dictionary"
+        style="@style/TextViewMain.Sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/dictionary"
+        app:layout_constraintEnd_toEndOf="@+id/vocabulary"
+        app:layout_constraintStart_toStartOf="@+id/vocabulary"
+        app:layout_constraintTop_toBottomOf="@+id/vocabulary" />
 
-        <TextView
-            android:id="@+id/dictionary"
-            style="@style/TextViewMain.Sub"
-            android:text="@string/dictionary" />
+    <TextView
+        android:id="@+id/verbs"
+        style="@style/TextViewMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="@string/vebrs"
+        app:layout_constraintBottom_toTopOf="@+id/sentences"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vocabulary" />
 
-        <TextView
-            android:id="@+id/verbs"
-            style="@style/TextViewMain"
-            android:layout_marginTop="36dp"
-            android:text="@string/vebrs" />
-
-        <ToggleButton
-            android:id="@+id/verbs_mode"
-            style="@style/TextViewMain.Sub"
-            android:textOn="@string/en_to_ru"
-            android:textOff="@string/ru_to_en"
-            android:checked="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/sentences"
-            style="@style/TextViewMain"
-            android:layout_marginTop="36dp"
-            android:text="@string/sentences" />
+    <TextView
+        android:id="@+id/sentences"
+        style="@style/TextViewMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sentences"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verbs" />
 
 
-    </LinearLayout>
-
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>
