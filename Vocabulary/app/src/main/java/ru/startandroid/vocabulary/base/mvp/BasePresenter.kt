@@ -8,7 +8,17 @@ abstract class BasePresenter<T : MvpView> : MvpPresenter<T> {
     var view: T? = null
         private set
 
-    private val compositeDisposable : CompositeDisposable = CompositeDisposable()
+    var viewIsReadyFirstTime = true
+
+    abstract fun onViewIsReady(firstTime: Boolean)
+
+    override fun viewIsReady() {
+        onViewIsReady(viewIsReadyFirstTime)
+        viewIsReadyFirstTime = false
+
+    }
+
+    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     override fun attachView(mvpView: T) {
         view = mvpView
