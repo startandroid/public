@@ -10,6 +10,7 @@ import ru.startandroid.data.database.dao.AppDatabase
 import ru.startandroid.data.database.dao.WordDao
 import ru.startandroid.data.database.mapper.WordMapper
 import ru.startandroid.data.repository.WordRepositoryImpl
+import ru.startandroid.domain.repository.WordRepository
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
@@ -29,7 +30,7 @@ class DatabaseModule {
 
     @AppScope
     @Provides
-    fun provideWordRepository(wordDao: WordDao, wordMapper: WordMapper, @DatabaseScheduler scheduler: Scheduler) = WordRepositoryImpl(wordDao, wordMapper, scheduler)
+    fun provideWordRepository(wordDao: WordDao, wordMapper: WordMapper, @DatabaseScheduler scheduler: Scheduler) : WordRepository = WordRepositoryImpl(wordDao, wordMapper, scheduler)
 
     @AppScope
     @DatabaseScheduler
@@ -40,5 +41,5 @@ class DatabaseModule {
     @AppScope
     @DatabaseScheduler
     @Provides
-    fun provideDatabaseExecutor() = Executors.newSingleThreadExecutor()
+    fun provideDatabaseExecutor() : Executor = Executors.newSingleThreadExecutor()
 }
