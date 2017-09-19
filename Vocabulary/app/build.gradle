@@ -29,34 +29,38 @@ dependencies {
 
     // projects
     implementation project(':data')
+    implementation project(':domain')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
-    androidTestImplementation(deps.espressoCore, {
+    androidTestImplementation(espresso.espressoCore, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testImplementation deps.junit
+    testImplementation junit.junit
 
-    implementation deps.appcompat7
-    implementation deps.support4
-    implementation deps.constraintLayout
+    // support
+    implementation support.appcompat7
+    implementation support.support4
+    implementation support.constraintLayout
+    implementation support.recyclerview
+    implementation support.design
 
 
     // butterknife
-    implementation deps.butterKnife
-    kapt deps.butterKnifeCompiler
+    implementation jakewharton.butterknife
+    kapt jakewharton.butterknifeCompiler
 
     // rxjava
-    implementation deps.rxJava
-    implementation deps.rxAndroid
-    implementation deps.rxKotlin
+    implementation rxjava2.rxjava
+    implementation rxjava2.rxandroid
+    implementation rxjava2.rxkotlin
 
     //dagger
-    implementation deps.dagger
-    kapt deps.daggerCompiler
+    implementation dagger.dagger
+    kapt dagger.daggerCompiler
 
 
-    compile deps.roomRuntime
-    compile deps.roomRxJava2
-    kapt deps.roomCompiler
+    implementation room.runtime
+    implementation room.rxjava2
+    kapt room.compiler
 }

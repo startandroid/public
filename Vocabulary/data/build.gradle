@@ -27,17 +27,25 @@ android {
 
 dependencies {
     implementation project(':domain')
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
-    implementation deps.appcompat7
-    testImplementation deps.junit
-    androidTestImplementation(deps.espressoCore, {
+    // testing
+    androidTestImplementation(espresso.espressoCore, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile deps.rxJava
-    compile deps.roomRuntime
+    testImplementation junit.junit
+
+    // support
+    implementation support.appcompat7
+
+    // rxjava
+    implementation rxjava2.rxjava
+
+    // room
+    implementation room.runtime
+    implementation room.rxjava2
+    kapt room.compiler
 }
 repositories {
     mavenCentral()
