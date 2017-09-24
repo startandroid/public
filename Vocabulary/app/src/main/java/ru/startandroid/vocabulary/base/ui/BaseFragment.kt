@@ -9,6 +9,7 @@ import butterknife.ButterKnife
 import butterknife.Unbinder
 import io.reactivex.disposables.Disposable
 import ru.startandroid.vocabulary.app.App
+import ru.startandroid.vocabulary.base.dagger.BaseModule
 import ru.startandroid.vocabulary.base.mvp.MvpPresenter
 import ru.startandroid.vocabulary.common.utils.DisposableManager
 import javax.inject.Inject
@@ -26,7 +27,11 @@ abstract class BaseFragment<P : MvpPresenter<*>> : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        componentHolder().getComponent(javaClass)?.inject(this)
+        componentHolder().getComponent(javaClass, createModule())?.inject(this)
+    }
+
+    protected open fun createModule(): BaseModule? {
+        return null
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -35,7 +40,7 @@ abstract class BaseFragment<P : MvpPresenter<*>> : Fragment() {
         return view
     }
 
-    private fun initView(view: View?) {
+    protected open fun initView(view: View?) {
         unbinder = ButterKnife.bind(this, view!!)
     }
 
@@ -47,6 +52,11 @@ abstract class BaseFragment<P : MvpPresenter<*>> : Fragment() {
         unbinder?.unbind();
         presenter.detachView();
         disposableManager.clear()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        reCreate = true
     }
 
     override fun onDestroy() {

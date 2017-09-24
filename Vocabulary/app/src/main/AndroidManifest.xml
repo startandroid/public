@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.dictionary.list.mvp.WordListActivity" />
+        <activity android:name=".ui.dictionary.list.WordListActivity" />
         <activity android:name=".ui.dictionary.details.WordDetailsActivity"></activity>
     </application>
 

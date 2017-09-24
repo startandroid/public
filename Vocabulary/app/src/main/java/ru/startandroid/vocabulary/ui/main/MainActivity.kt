@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import butterknife.ButterKnife
 import butterknife.OnClick
 import ru.startandroid.vocabulary.R
-import ru.startandroid.vocabulary.ui.dictionary.list.mvp.WordListActivity
+import ru.startandroid.vocabulary.ui.dictionary.list.WordListActivity
 
 class MainActivity : AppCompatActivity() {
 

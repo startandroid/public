@@ -26,6 +26,7 @@ class WordListDagger {
     @Module
     class WordListModule: BaseModule {
 
+        @WordListScope
         @Provides
         fun provideWordListContractPresenter(getWords: GetWords) : WordListContract.Presenter {
             return WordListPresenter(getWords);

@@ -1,10 +1,11 @@
-package ru.startandroid.vocabulary.ui.dictionary.list.mvp
+package ru.startandroid.vocabulary.ui.dictionary.list
 
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import ru.startandroid.vocabulary.R
+import ru.startandroid.vocabulary.ui.dictionary.list.mvp.WordListFragment
 
 class WordListActivity : AppCompatActivity() {
 

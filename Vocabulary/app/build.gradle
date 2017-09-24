@@ -44,7 +44,7 @@ dependencies {
     implementation support.constraintLayout
     implementation support.recyclerview
     implementation support.design
-
+    implementation support.cardview
 
     // butterknife
     implementation jakewharton.butterknife
@@ -59,7 +59,7 @@ dependencies {
     implementation dagger.dagger
     kapt dagger.daggerCompiler
 
-
+    // room
     implementation room.runtime
     implementation room.rxjava2
     kapt room.compiler
