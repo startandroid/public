@@ -18,12 +18,12 @@ Features:
 
 Tech stack:
 * Clean architecture
-* Dagger 2
-* RxJava 2
-* Retrofit
+* RxJava, RxBinding, RxRelay
+* Dagger
+* Retrofit, Gson
+* ButterKnife
 * Picasso
-* RxBinding
-* Testing
+* Mockito, Espresso, Robolectric
 
 <br><br>
 
@@ -31,5 +31,18 @@ Tech stack:
 
 Application for learning English
 
-In progress now.
+<br>
 
+Status: in progress 
+
+<br>
+
+Tech stack:
+* Kotlin
+* Room
+* Clean architecture
+* RxJava
+* Dagger
+* ButterKnife
+
+<br><br>
