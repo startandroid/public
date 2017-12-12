@@ -2,16 +2,25 @@ package ru.startandroid.vocabulary.data.sentence;
 
 public class Sentence {
 
-    private long id;
+    private long exerciseId;
+    private long sentenceId;
     private String russian;
     private String english;
 
-    public long getId() {
-        return id;
+    public long getExerciseId() {
+        return exerciseId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setExerciseId(long exerciseId) {
+        this.exerciseId = exerciseId;
+    }
+
+    public long getSentenceId() {
+        return sentenceId;
+    }
+
+    public void setSentenceId(long sentenceId) {
+        this.sentenceId = sentenceId;
     }
 
     public String getRussian() {
@@ -28,5 +37,10 @@ public class Sentence {
 
     public void setEnglish(String english) {
         this.english = english;
+    }
+
+    @Override
+    public String toString() {
+        return "" + sentenceId;
     }
 }

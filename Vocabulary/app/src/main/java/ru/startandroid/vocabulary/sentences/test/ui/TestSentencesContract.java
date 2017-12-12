@@ -8,11 +8,14 @@ public interface TestSentencesContract {
 
     interface View extends MvpView {
         void showSentence(Sentence sentence);
+        void showCount(int count);
         void closeScreen();
     }
 
     interface Presenter extends MvpPresenter<View> {
         void next();
+        void showAgain();
+        void remove();
     }
 
 }

@@ -35,6 +35,9 @@ public class TestSentencesFragment extends Fragment implements TestSentencesCont
     @BindView(R.id.english)
     TextView textViewEnglish;
 
+    @BindView(R.id.count)
+    TextView textViewCount;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +68,16 @@ public class TestSentencesFragment extends Fragment implements TestSentencesCont
         presenter.next();
     }
 
+    @OnClick(R.id.showAgain)
+    void onShowAgainClick() {
+        presenter.showAgain();
+    }
+
+    @OnClick(R.id.remove)
+    void onRemoveClick() {
+        presenter.remove();
+    }
+
     @OnClick(R.id.english)
     void onEnglishClick() {
         textViewEnglish.setText(sentence.getEnglish());
@@ -75,6 +88,11 @@ public class TestSentencesFragment extends Fragment implements TestSentencesCont
         this.sentence = sentence;
         textViewEnglish.setText("");
         textViewRussian.setText(sentence.getRussian());
+    }
+
+    @Override
+    public void showCount(int count) {
+        textViewCount.setText(Integer.toString(count));
     }
 
     @Override

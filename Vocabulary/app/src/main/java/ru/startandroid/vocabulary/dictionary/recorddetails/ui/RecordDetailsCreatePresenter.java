@@ -21,6 +21,7 @@ public class RecordDetailsCreatePresenter extends PresenterBase<RecordDetailsCon
     public void onSaveClick() {
         record = new Record();
         record.setAdded(System.currentTimeMillis());
+        record.setEnabled(true);
         getView().fillRecord(record);
         recordController.addItem(record).subscribe();
         getView().closeScreen();

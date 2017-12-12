@@ -2,8 +2,11 @@ package ru.startandroid.vocabulary.base;
 
 import android.content.ContentValues;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import ru.startandroid.vocabulary.storage.database.ItemDatabaseRepository;
 import ru.startandroid.vocabulary.storage.database.ItemMapper;
@@ -58,13 +61,32 @@ public abstract class ItemController<I> {
 
     public Completable updateItem(I item) {
         ContentValues cv = itemMapper.toContentValues(item);
-        SqlSpecificationWhere specificationWhere = createSqlSpecificationWhereFromItem(item);// new SqlSpecificationWhereByValue(RecordsTable.ID, Long.toString(item.getId()));
+        SqlSpecificationWhere specificationWhere = createSqlSpecificationWhereFromItem(item);// new SqlSpecificationWhereByValue(RecordsTable.ID, Long.toString(item.getExerciseId()));
         SqlSpecificationUpdate sqlSpecificationUpdate = new SqlSpecificationUpdate(cv, specificationWhere);
-        return Observable.just(sqlSpecificationUpdate)
-                .map(new Func1<SqlSpecificationUpdate, Void>() {
+        return update(sqlSpecificationUpdate);
+    }
+
+    public Completable update(SqlSpecificationUpdate sqlSpecificationUpdate) {
+        List<SqlSpecificationUpdate> list = new ArrayList<>(1);
+        list.add(sqlSpecificationUpdate);
+        return update(list);
+    }
+
+    public Completable update(List<SqlSpecificationUpdate> sqlSpecificationUpdateSet) {
+        return Observable.just(sqlSpecificationUpdateSet)
+                .map(new Func1<List<SqlSpecificationUpdate>, Void>() {
                     @Override
-                    public Void call(SqlSpecificationUpdate specificationUpdate) {
-                        itemRepository.update(specificationUpdate);
+                    public Void call(List<SqlSpecificationUpdate> specificationUpdateSet) {
+                        itemRepository.beginTransaction();
+                        try {
+                            for (SqlSpecificationUpdate sqlSpecificationUpdate : specificationUpdateSet) {
+                                itemRepository.update(sqlSpecificationUpdate, false);
+                            }
+                            itemRepository.setTransactionSuccessful();
+                        } finally {
+                            itemRepository.endTransaction();
+                            itemRepository.postUpdateEvent();
+                        }
                         return null;
                     }
                 })

@@ -79,10 +79,20 @@ public class ItemDatabaseRepository<I> {
     }
 
     public int update(SqlSpecificationUpdate sqlSpecificationUpdate)  {
+        return update(sqlSpecificationUpdate, true);
+    }
+
+    public int update(SqlSpecificationUpdate sqlSpecificationUpdate, boolean postEvent)  {
         SQLiteDatabase db = getDatabase();
         int upd = db.update(tableName, sqlSpecificationUpdate.getContentValues(), sqlSpecificationUpdate.getWhereClause(), sqlSpecificationUpdate.getWhereArgs());
-        eventBus.postEvent(itemUpdatedEvent);
+        if (postEvent) {
+            eventBus.postEvent(itemUpdatedEvent);
+        }
         return upd;
+    }
+
+    public void postUpdateEvent() {
+        eventBus.postEvent(itemUpdatedEvent);
     }
 
     public int delete(SqlSpecificationWhere specification)  {
@@ -90,6 +100,18 @@ public class ItemDatabaseRepository<I> {
         int del = db.delete(tableName, specification.getWhereClause(), specification.getWhereArgs());
         eventBus.postEvent(itemUpdatedEvent);
         return del;
+    }
+
+    public void beginTransaction() {
+        getDatabase().beginTransaction();
+    }
+
+    public void setTransactionSuccessful() {
+        getDatabase().setTransactionSuccessful();
+    }
+
+    public void endTransaction() {
+        getDatabase().endTransaction();
     }
 
 

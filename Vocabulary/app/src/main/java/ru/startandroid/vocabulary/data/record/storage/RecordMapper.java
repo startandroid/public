@@ -18,6 +18,7 @@ public class RecordMapper implements ItemMapper<Record> {
         record.setSample(cursor.getString(cursor.getColumnIndex(RecordsTable.SAMPLE)));
         record.setDefinition(cursor.getString(cursor.getColumnIndex(RecordsTable.DEFINITION)));
         record.setRememberedCount(cursor.getLong(cursor.getColumnIndex(RecordsTable.REMEMBERED_COUNT)));
+        record.setEnabled(cursor.getLong(cursor.getColumnIndex(RecordsTable.ENABLED)) == 1);
         record.setAdded(cursor.getLong(cursor.getColumnIndex(RecordsTable.ADDED)));
         return record;
     }
@@ -30,6 +31,7 @@ public class RecordMapper implements ItemMapper<Record> {
         cv.put(RecordsTable.SAMPLE, item.getSample());
         cv.put(RecordsTable.DEFINITION, item.getDefinition());
         cv.put(RecordsTable.REMEMBERED_COUNT, item.getRememberedCount());
+        cv.put(RecordsTable.ENABLED, item.isEnabled() ? 1 : 0);
         cv.put(RecordsTable.ADDED, item.getAdded());
         return cv;
     }

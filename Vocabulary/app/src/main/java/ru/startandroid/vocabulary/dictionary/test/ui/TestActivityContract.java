@@ -16,6 +16,7 @@ public interface TestActivityContract {
         void showData();
         void onYesClick();
         void onNoClick();
+        void onDisableClick();
 
     }
 

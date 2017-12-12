@@ -16,6 +16,6 @@ public class SentenceController extends ItemController<Sentence> {
 
     @Override
     protected SqlSpecificationWhere createSqlSpecificationWhereFromItem(Sentence item) {
-        return new SqlSpecificationWhereByValue(SentencesTable.ID, Long.toString(item.getId()));
+        return new SqlSpecificationWhereByValue(SentencesTable.ID, Long.toString(item.getExerciseId()));
     }
 }

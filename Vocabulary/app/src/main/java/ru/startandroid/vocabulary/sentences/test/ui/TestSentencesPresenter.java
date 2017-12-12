@@ -1,6 +1,9 @@
 package ru.startandroid.vocabulary.sentences.test.ui;
 
-import java.util.ArrayList;
+import android.util.Log;
+
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -15,39 +18,62 @@ public class TestSentencesPresenter extends PresenterBase<TestSentencesContract.
 
     private final SentenceController sentenceController;
     boolean notLoadedYet = true;
-    private List<Sentence> sentences;
+    private LinkedList<Sentence> sentences;
+    //private Queue<Integer> againSentences;
     private Subscription subscription;
     private Random rnd;
-    private int lastIndex = -1;
+    private Sentence lastSentence;
+    //private int lastIndex = -1;
 
     public TestSentencesPresenter(SentenceController sentenceController) {
         this.sentenceController = sentenceController;
-        sentences = new ArrayList<>();
+        sentences = new LinkedList<>();
+        //againSentences = new LinkedList();
         rnd = new Random(System.currentTimeMillis());
     }
 
     @Override
     public void next() {
         if (notLoadedYet) {
+            notLoadedYet = false;
             loadData();
         } else {
+            if (lastSentence != null) {
+                sentences.addLast(lastSentence);
+            }
             showNext();
         }
     }
 
-    private void showNext() {
-        int i = 0;
-        if (sentences.size() == 1) {
-            getView().showSentence(sentences.get(0));
+    @Override
+    public void showAgain() {
+        if (sentences.isEmpty()) {
             return;
         }
+        int r = 0;
+        if (sentences.size() > 10) {
+            r = rnd.nextInt(5);
+        }
+        sentences.add(5 + r, lastSentence);
+        showNext();
+    }
 
-        do {
-            i = rnd.nextInt(sentences.size());
-        } while (i == lastIndex);
+    @Override
+    public void remove() {
+        lastSentence = null;
+        next();
+    }
 
-        getView().showSentence(sentences.get(i));
-        lastIndex = i;
+    private void showNext() {
+        if (sentences.isEmpty()) {
+            getView().closeScreen();
+            return;
+        }
+        Log.d("qweee", "list " + sentences);
+        lastSentence = sentences.poll();
+        Log.d("qweee", "showNext " + lastSentence.getSentenceId());
+        getView().showSentence(lastSentence);
+        getView().showCount(sentences.size());
     }
 
     private void loadData() {
@@ -58,8 +84,11 @@ public class TestSentencesPresenter extends PresenterBase<TestSentencesContract.
                 if (sentences.size() == 0) {
                     getView().closeScreen();
                     return;
+
                 }
-                TestSentencesPresenter.this.sentences = sentences;
+                TestSentencesPresenter.this.sentences.clear();
+                TestSentencesPresenter.this.sentences.addAll(sentences);
+                Collections.shuffle(TestSentencesPresenter.this.sentences);
                 showNext();
             }
         });

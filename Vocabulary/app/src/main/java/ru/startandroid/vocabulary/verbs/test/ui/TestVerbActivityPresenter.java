@@ -73,10 +73,8 @@ public class TestVerbActivityPresenter extends PresenterBase<TestVerbActivityCon
     }
 
     private void changeRememberedCountInCurrent(int value) {
-        int index = data.indexOf(currentRecord);
         currentRecord.setRememberedCount(currentRecord.getRememberedCount() + value);
         verbController.updateItem(currentRecord).subscribe();
-        data.set(index, currentRecord);
         sortData();
     }
 

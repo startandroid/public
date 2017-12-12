@@ -16,6 +16,7 @@ public interface ExerciseListContract {
     interface Presenter extends MvpPresenter<View> {
         void showData();
         void onExerciseClick(Exercise exercise);
+        void select(String from, String to);
     }
 
 }

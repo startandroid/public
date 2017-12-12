@@ -17,10 +17,10 @@ public class SqlSpecificationUpdate {
     }
 
     public String getWhereClause() {
-        return sqlSpecificationWhere.getWhereClause();
+        return sqlSpecificationWhere == null ? "" : sqlSpecificationWhere.getWhereClause();
     }
 
     public String[] getWhereArgs() {
-        return sqlSpecificationWhere.getWhereArgs();
+        return sqlSpecificationWhere == null ? null : sqlSpecificationWhere.getWhereArgs();
     }
 }

@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -11,6 +12,7 @@ import ru.startandroid.vocabulary.app.Constants;
 import ru.startandroid.vocabulary.base.mvp.PresenterBase;
 import ru.startandroid.vocabulary.data.record.Record;
 import ru.startandroid.vocabulary.data.record.RecordController;
+import ru.startandroid.vocabulary.data.record.storage.SqlSpecificationRawAllEnabledRecords;
 import ru.startandroid.vocabulary.data.record.storage.SqlSpecificationRawAllRecords;
 import ru.startandroid.vocabulary.utils.Stack;
 import rx.Subscription;
@@ -24,8 +26,8 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
     private boolean notLoadedYet = true;
     private Subscription loadSubscription;
     private List<Record> data;
-    // TODO use stack for id instead Record
-    private Stack<Record> stack;
+    // TODO use stack<Long> for id instead <Record>
+    private LinkedList<Record> stack;
     private Random rnd;
 
     public TestActivityPresenter(RecordController recordController) {
@@ -45,14 +47,14 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
     private void loadData() {
         removeSubscription(loadSubscription);
         loadSubscription = recordController
-                .getItems(new SqlSpecificationRawAllRecords())
+                .getItems(new SqlSpecificationRawAllEnabledRecords())
                 .subscribe(new Action1<List<Record>>() {
             @Override
             public void call(List<Record> records) {
                 data = records;
                 sortData();
-                int stackSize = Math.min(Constants.STACK_SIZE, data.size() - 1); // - Constants.RANDOM_LEVEL);
-                stack = new Stack<>(stackSize);
+
+                stack = new LinkedList<Record>();
                 showNextRecord();
             }
         });
@@ -71,6 +73,15 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
         showNextRecord();
     }
 
+    @Override
+    public void onDisableClick() {
+        currentRecord.setEnabled(false);
+        recordController.updateItem(currentRecord).subscribe();
+        data.remove(currentRecord);
+        stack.remove(currentRecord);
+        showNextRecord();
+    }
+
     private void changeRememberedCountInCurrent(int value) {
         int index = data.indexOf(currentRecord);
         currentRecord.setRememberedCount(currentRecord.getRememberedCount() + value);
@@ -85,6 +96,8 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
         showCurrentRecord();
     }
 
+
+    // TODO use TreeSet ?
     private void chooseNextRecord() {
         if (data.size() == 0) {
             return;
@@ -92,11 +105,20 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
 
         Record rec = null;
 
+        if (data.size() == 1) {
+            rec = data.get(0);
+        }
+
+
+        Log.d("qwe", "chooseNextRecord data " + "data" + ", stack " + stack);
+
+
         // usually we take the least remembered word from list
         // but sometimes (10%) take random word
         int useRnd = rnd.nextInt(10);
+        Log.d("qwe", "useRnd " + useRnd);
         Log.d("qwe", "use random word ? " + (useRnd == 5));
-        if (useRnd == 5) {
+        if (rec == null && useRnd == 5 || stack.size() == 0) {
             Log.d("qwe", "use random word");
             // will select random words
             int index = 0;
@@ -110,7 +132,8 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
         // take random from the least remembered
         if (rec == null && useRnd < 5) {
             while (rec == null) {
-                int index = rnd.nextInt(stack.getSize() + 1);
+                int index = rnd.nextInt(stack.size() + 1);
+                Log.d("qwe", "use random least rem word i = " + index);
                 rec = data.get(index);
                 if (stack.contains(rec)) {
                     rec = null;
@@ -166,7 +189,11 @@ public class TestActivityPresenter extends PresenterBase<TestActivityContract.Vi
 
     private void showCurrentRecord() {
         if (currentRecord != null) {
-            stack.add(currentRecord);
+            stack.addFirst(currentRecord);
+            int stackSize = Math.min(Constants.STACK_SIZE, data.size() - 1); // - Constants.RANDOM_LEVEL);
+            if (stack.size() > stackSize) {
+                stack.removeLast();
+            }
             getView().showRecord(currentRecord);
         } else {
             getView().closeScreen();

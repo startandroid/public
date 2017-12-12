@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import java.util.Collection;
 
@@ -31,8 +32,16 @@ public class ExerciseListFragment extends Fragment implements ExerciseListContra
 
     @Inject
     ExerciseListContract.Presenter presenter;
+
     @BindView(R.id.exerciseList)
     RecyclerView recyclerViewExerciseList;
+
+    @BindView(R.id.rangeFrom)
+    EditText editTextRangeFrom;
+
+    @BindView(R.id.rangeTo)
+    EditText editTextRangeTo;
+
     private Unbinder unbinder;
     private ExerciseAdapter adapter;
     private boolean reCreate = false;
@@ -76,6 +85,11 @@ public class ExerciseListFragment extends Fragment implements ExerciseListContra
     @OnClick(R.id.test)
     void onTestClick() {
         TestSentencesActivity.start(getActivity());
+    }
+
+    @OnClick(R.id.select)
+    void onSelectClick() {
+        presenter.select(editTextRangeFrom.getText().toString(), editTextRangeTo.getText().toString());
     }
 
     @Override

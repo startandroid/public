@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import ru.startandroid.vocabulary.data.sentence.Sentence;
-import ru.startandroid.vocabulary.storage.database.ExercisesTable;
 import ru.startandroid.vocabulary.storage.database.ItemMapper;
 import ru.startandroid.vocabulary.storage.database.SentencesTable;
 
@@ -12,7 +11,8 @@ public class SentenceMapper implements ItemMapper<Sentence> {
     @Override
     public Sentence fromCursor(Cursor cursor) {
         Sentence item = new Sentence();
-        item.setId(cursor.getLong(cursor.getColumnIndex(SentencesTable.ID)));
+        item.setExerciseId(cursor.getLong(cursor.getColumnIndex(SentencesTable.ID)));
+        item.setSentenceId(cursor.getLong(cursor.getColumnIndex(SentencesTable.SENTENCE_ID)));
         item.setRussian(cursor.getString(cursor.getColumnIndex(SentencesTable.RUSSIAN)));
         item.setEnglish(cursor.getString(cursor.getColumnIndex(SentencesTable.ENGLISH)));
         return item;

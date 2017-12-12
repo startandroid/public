@@ -11,6 +11,7 @@ public class Record implements Parcelable {
     private String sample;
     private String definition;
     private long rememberedCount;
+    private boolean enabled;
     private long added;
 
     public long getId() {
@@ -61,6 +62,14 @@ public class Record implements Parcelable {
         this.added = added;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public String getDefinition() {
         return definition;
     }
@@ -82,6 +91,7 @@ public class Record implements Parcelable {
         dest.writeString(sample);
         dest.writeString(definition);
         dest.writeLong(rememberedCount);
+        dest.writeByte((byte) (isEnabled() ? 1 : 0));
         dest.writeLong(added);
     }
 
@@ -96,6 +106,7 @@ public class Record implements Parcelable {
         setSample(parcel.readString());
         setDefinition(parcel.readString());
         setRememberedCount(parcel.readLong());
+        setEnabled(parcel.readByte() == 1);
         setAdded(parcel.readLong());
     }
 
@@ -126,5 +137,15 @@ public class Record implements Parcelable {
     @Override
     public int hashCode() {
         return (int) (id ^ (id >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "id=" + id +
+                ", word='" + word + '\'' +
+                ", rememberedCount=" + rememberedCount +
+                ", enabled=" + enabled +
+                '}';
     }
 }

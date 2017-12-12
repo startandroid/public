@@ -40,6 +40,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/disable"
+            android:text="Убрать"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
 
     </LinearLayout>
 

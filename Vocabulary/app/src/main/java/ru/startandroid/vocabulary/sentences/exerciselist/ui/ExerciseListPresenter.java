@@ -1,7 +1,11 @@
 package ru.startandroid.vocabulary.sentences.exerciselist.ui;
 
+import android.text.TextUtils;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import ru.startandroid.vocabulary.base.mvp.PresenterBase;
 import ru.startandroid.vocabulary.data.exercise.Exercise;
@@ -71,5 +75,43 @@ public class ExerciseListPresenter extends PresenterBase<ExerciseListContract.Vi
     public void onExerciseClick(Exercise exercise) {
         exercise.setEnabled(!exercise.isEnabled());
         exerciseController.updateItem(exercise).subscribe();
+    }
+
+    @Override
+    public void select(String from, String to) {
+        List<Long> idList = prepareIdSet(from, to);
+        exerciseController.selectExercises(idList).subscribe();
+    }
+
+    private List<Long> prepareIdSet(String from, String to) {
+        List<Long> idList = new ArrayList<>();
+        int fromIndex = parseString(from);
+
+        if (fromIndex == -1) {
+            return idList;
+        }
+
+        int toIndex = parseString(to);
+        if (toIndex == -1 || toIndex <= fromIndex) {
+            idList.add(data.get(fromIndex - 1).getId());
+        } else {
+            for (int i =fromIndex; i <= toIndex; i++) {
+                idList.add(data.get(i - 1).getId());
+            }
+        }
+        return idList;
+    }
+
+    private int parseString(String value) {
+        int result = -1;
+
+        if (TextUtils.isEmpty(value) || !TextUtils.isDigitsOnly(value)) {
+            return result;
+        }
+
+        result = Integer.parseInt(value);
+        if (result < 1) result = 1;
+        if (result > data.size()) result = data.size();
+        return result;
     }
 }

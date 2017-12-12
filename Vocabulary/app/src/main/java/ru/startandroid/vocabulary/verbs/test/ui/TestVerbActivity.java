@@ -3,6 +3,7 @@ package ru.startandroid.vocabulary.verbs.test.ui;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import javax.inject.Inject;
@@ -28,6 +29,7 @@ public class TestVerbActivity extends AppCompatActivity implements TestVerbActiv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_activity);
+        findViewById(R.id.disable).setVisibility(View.GONE);
         initView();
         App.getApp(this).getComponentHolder().getTestVerbActivityComponent().injectTestVerbActivity(this);
         presenter.attachView(this);

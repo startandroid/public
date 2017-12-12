@@ -1,5 +1,6 @@
 package ru.startandroid.vocabulary.dictionary.recordlist.list;
 
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -62,6 +63,11 @@ public class RecordHolder extends RecyclerView.ViewHolder {
 
         // TODO
         textViewWord.setText(record.getWord() + " (" + record.getRememberedCount() + ")");
+        if (record.isEnabled()) {
+            textViewWord.setPaintFlags(textViewWord.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+        } else {
+            textViewWord.setPaintFlags(textViewWord.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
         textViewTranslate.setText(record.getTranslate());
         textViewTranslate.setVisibility(TextUtils.isEmpty(record.getTranslate()) ? View.GONE : View.VISIBLE);
         textViewDefinition.setText(record.getDefinition());

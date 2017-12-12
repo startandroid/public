@@ -51,6 +51,11 @@ public class TestActivity extends AppCompatActivity implements TestActivityContr
         presenter.onNoClick();
     }
 
+    @OnClick(R.id.disable)
+    void onDisableClick() {
+        presenter.onDisableClick();
+    }
+
     @Override
     public void showRecord(Record record) {
         //Toast.makeText(this, "Record " + record.getWord() + ", " + record.getRememberedCount(), Toast.LENGTH_LONG).show();

@@ -11,6 +11,7 @@ public class RecordsTable {
     public static final String DEFINITION = "definition";
     public static final String REMEMBERED_COUNT = "remembered_count";
     public static final String ADDED = "added";
+    public static final String ENABLED = "enabled";
     public static final String SHOW_AFTER = "show_after";
 
     public static final String CREATE_SCRIPT = String.format(
@@ -22,7 +23,8 @@ public class RecordsTable {
                     "%s text, " +
                     "%s integer, " +
                     "%s integer, " +
+                    "%s integer default 1, " +
                     "%s integer " +
                     ")",
-            TABLE_NAME, ID, WORD, TRANSLATE, SAMPLE, DEFINITION, REMEMBERED_COUNT, ADDED, SHOW_AFTER);
+            TABLE_NAME, ID, WORD, TRANSLATE, SAMPLE, DEFINITION, REMEMBERED_COUNT, ADDED, ENABLED, SHOW_AFTER);
 }

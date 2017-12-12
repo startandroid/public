@@ -16,6 +16,7 @@ import butterknife.Unbinder;
 import ru.startandroid.vocabulary.R;
 import ru.startandroid.vocabulary.app.Constants;
 import ru.startandroid.vocabulary.data.record.Record;
+import ru.startandroid.vocabulary.utils.Utils;
 
 public class TestFragment extends Fragment {
 
@@ -84,7 +85,11 @@ public class TestFragment extends Fragment {
 
     @OnClick(R.id.word)
     void onWordClick() {
-        textViewWord.setText(record.getWord());
+        if (TextUtils.isEmpty(textViewWord.getText())) {
+            textViewWord.setText(record.getWord());
+        } else {
+            Utils.callGoogleTranslateAppsEnToRu(getActivity(), textViewWord.getText().toString());
+        }
     }
 
     @OnClick(R.id.sample)
