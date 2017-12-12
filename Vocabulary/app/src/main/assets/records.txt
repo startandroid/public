@@ -1,0 +1,742 @@
+﻿ability#способность, возможность##
+abroad#за границей, за границу##
+acceptable#приемлемый; допустимый##
+accidentally#случайно, нечаянно##
+admit#допускать, соглашаться##
+advise#советовать, советоваться##
+against#прямо напротив, лицом к##
+ahead#вперед; впереди##
+among#между, посреди, среди##
+anxious#озабоченный, беспокойный##
+anyway = anyhow#так или иначе, как-нибудь, все равно##
+anywhere#где-нибудь, куда-нибудь, никуда, везде##
+apart#в стороне, отдельно, отлично от##
+apparently#очевидно, по-видимому##
+argue#спорить##
+arrange#приводить в порядок, расставлять##
+attempt#пытаться, стараться, стремиться##
+attitude#позиция, отношение ##
+aware#знающий, осведомленный##
+badly#плохо##
+bear#терпеть, выносить##
+beginning#начало##
+behave#вести себя, поступать##
+behind#задний##
+belong#принадлежать, соответствовать##
+benefit#выгода, прибыль##
+blame#упрек, осуждение##
+blame#осуждать##
+boil#варить (ся), кипятить (ся)##
+bored#скучающий##
+boring#скучный##
+borrow#одалживать, занимать##
+bother#беспокоить(ся), надоедать##
+bound#связанный##
+bright#яркий##
+bring back#приносить обратно, возвращать##
+broad#широкий##
+bunch#связка, пучек##
+burn#гореть, пылать##
+burst#лопаться, взрываться##
+bush#куст##
+call back#перезванивать кому-л.##
+care#заботиться (for, of, about)##
+careless#беззаботный, небрежный##
+carry#носить##
+catch#ловить, поймать##
+central#центральный##
+certain#определенный, уверенный##
+challenge#(сложная) проблема##
+charge#плата, цена##
+charge#назначать, запрашивать цену##
+choice#выбор, отбор##
+circumstance#обстоятельство, случай##
+claim#требование, претензия##
+claim#требовать, предъявлять требования##
+clearly#ясно, очевидно##
+closely#близко, вплотную##
+coat#пальто##
+come back#возвращаться##
+come down#спускаться, опускаться##
+come from#приходить откуда-л.##
+come in#входить##
+come out#выходить##
+come round#заходить ненадолго, заглянуть##
+come up#подниматься, возникать##
+compare#сравнивать, сверять##
+compete#состязаться, соперничать##
+complain#жаловаться, выражать недовольство ##
+complaint#жалоба, недовольство##
+completely#вполне, полностью##
+complicated#запутанный, трудный для понимания##
+concentrate#сосредоточивать (ся)##
+concern#отношение, беспокойство##
+conclusion#умозаключение, вывод##
+conduct#сопровождать, сопутствовать##
+confidence#вера, уверенность##
+confident#уверенный ##
+confuse#смешивать, спутывать ##
+confused#смущенный; озадаченный##
+confusing#сбивающий с толку##
+consider#рассматривать, считать##
+considering#учитывая, принимая во внимание##
+consult#советоваться, консультироваться##
+contribute#способствовать, вносить вклад##
+convince#убеждать, уверять ##
+convincing#убедительный##
+creature#создание, творение##
+crowded#переполненный, битком набитый##
+cruel#жестокий##
+cruelty#жестокость##
+curious#любопытный, любознательный##
+damp#влажный, сырой##
+deaf#глухой##
+deal#сделка, соглашение##
+debt#долг##
+decide#решать (ся), принимать решение##
+decision#решение##
+defeat#одержать победу##
+defend#защищать (ся)##
+definite#ясный, точный##
+deliberate#намеренный, предумышленный  ##
+deliberately#сознательно,обдуманно##
+deliver#доставлять, разносить##
+demand#требовать##
+depend#зависеть, находиться в зависимости##
+deserve#заслуживать##
+determined#решительный##
+direct#прямой##
+direct#руководить, направлять##
+disapprove#осуждать, не одобрять##
+disgusting#противный##
+disturb#беспокоить, волновать##
+divide#отделять (ся), разъединять (ся)##
+drop#ронять, падать##
+dry#сушить (ся), сохнуть##
+dull#скучный, тупой##
+during#в течение, во время##
+duty#обязанность##
+eager#страстно желающий, жаждущий ##
+earn#зарабатывать, заслуживать##
+edge#кромка, край##
+embarrassed#смущенный, растерянный##
+emphasis#важность, значимость##
+emphasize#подчеркивать, акцентировать##
+encourage#поощрять, поддерживать##
+especially#особенно, в особенности##
+evidence#доказательство, основание##
+exaggerate#преувеличивать##
+except#исключая, кроме##
+excited#взволнованный, напряженный ##
+extremely#чрезвычайно, крайне##
+fail#потерпеть неудачу, не сбыться##
+fair#честный, справедливый, светлый##
+fall#падать##
+fear#бояться ##
+feature#особенность, характерная черта##
+fence#забор##
+fill#наполнять (ся) ##
+firm#твердый, стойкий##
+fit#подходить, соответствовать##
+fit#подходящий, соответствующий ##
+flood#заливать, затоплять##
+floor#пол, этаж##
+flow#течь, струиться##
+fold#загибать, складывать##
+foreign#иностранный; заграничный##
+forget#забывать##
+forgive#прощать ##
+fork#вилка##
+frequent#частый##
+frighten#пугать##
+front#передняя сторона чего-л##
+furniture#мебель##
+further#дальше, дальнейший##
+get off#сойти, слезть##
+get on #садиться (в машину)##
+get out#выходить, вылезать##
+get up#вставать, подниматься##
+give away#отдавать, дарить##
+give back#возвращать, отдавать##
+give out#раздавать, распределять##
+give up#оставить, отказаться##
+go down#опускаться, садиться##
+go on#продолжать, случаться##
+go up#подниматься, идти вверх##
+gradually#постепенно##
+guess#предположение, догадка##
+guess#догадаться, полагать##
+guilty #виновный, виноватый##
+habit#обычай, привычка##
+height#высота, рост##
+honest#честный##
+hurry#суета, спешка##
+hurry#торопить (ся), подгонять##
+identify#опознавать, идентифицировать##
+illness#болезнь##
+immediately#немедленно, сразу##
+impatient#нетерпеливый##
+indeed#в самом деле, действительно##
+influence#влияние, действие##
+innocent#невинный, непорочный##
+inquire#осведомляться, узнавать##
+inside#внутренний, внутри##
+insist#настаивать, утверждать##
+instant#мгновенный, растворимый##
+instead#вместо, взамен##
+intelligent#сообразительный, понятливый##
+intend#планировать, предназначаться##
+interrupt#прерывать, прекращать##
+introduce#знакомить, представлять ##
+keep away#держать (ся) в отдалении, избегать##
+keep from#удерживать (ся), воздерживаться ##
+keep off#не подпускать, воздерживаться##
+keep up#поддерживать, продолжать##
+lead#вести, сопровождать, управлять##
+lean#наклонять (ся), опирать (ся)##
+leg#нога (от бедра до ступни), ножка##
+lend#одалживать, давать взаймы##
+less#меньше, менее##
+limit#граница, предел##
+limit#ограничивать, ставить предел ##
+line#линия, очередь, веревка##
+look around#осматривать##
+look back (on)#оглядываться##
+look up#искать (что-л. в справочнике)##
+lower#нижний, низший##
+mad#сумасшедший, ненормальный##
+mainly#главным образом, преимущественно##
+maintain#поддерживать, удерживать##
+major#более важный, больший##
+majority#большинство##
+make into#переделывать, превращать во (что-л.)##
+mark#отмечать, обозначать##
+matter#дело, вопрос, причина##
+matter#иметь значение, значить##
+meal#прием пищи, еда##
+mean#иметь в виду, значить, думать##
+meaning#значение, смысл##
+meanwhile#тем временем, между тем##
+mention#упоминать##
+mess#беспорядок, неприятность##
+mess#производить беспорядок##
+minor#незначительный, несущественный##
+minority#меньшинство##
+mistake#ошибаться##
+motion#движение##
+mysterious#таинственный, загадочный ##
+mystery#тайна, загадка##
+narrow#узкий##
+neat#аккуратный##
+necessary#необходимый, нужный##
+nervous#нервный##
+noise#шум, грохот##
+noisy#шумный, неспокойный##
+notice#объявление, афиша##
+occasion#случай, повод##
+occasional#случайный##
+occur#происходить, случаться##
+odd#странный, необычный##
+offence#нарушение, преступление##
+offend#обижать, раздражать##
+operate#действовать, функционировать##
+opportunity#благоприятная возможность##
+otherwise#иначе, во всем остальном##
+outside#снаружи, вне, за пределами##
+owe#быть должным, быть обязанным##
+pain#боль, страдание##
+past#мимо##
+perfect#совершенный##
+petrol#бензин##
+plate#тарелка##
+pleasant#приятный, радостный##
+pleasure#удовольствие##
+plenty#множество, избыток##
+plenty#вполне, довольно  ##
+pocket#карман##
+point#указывать, показывать##
+poison#яд##
+pool#бассейн, лужа##
+possession#владение, обладание##
+post#посылать по почте##
+pour#лить, наливать##
+practise#практиковать (ся), тренироваться##
+praise#хвалить##
+precise#точный, определенный##
+prefer#предпочитать##
+preparation#подготовка, приготовление##
+prepare#готовить, подготавливать##
+pretend#притворяться##
+pretty#хорошенький, симпатичный##
+pretty#достаточно, довольно##
+prevent#предотвращать, мешать##
+principle#принцип##
+profit#прибыль##
+properly#должным образом, надлежаще##
+protect#защищать, охранять##
+provide#снабжать, обеспечивать##
+pump#качать, выкачивать##
+punish#наказывать, штрафовать##
+pure#чистый, беспримесный##
+purpose#цель, намерение##
+push#толкать (ся)##
+put#класть, положить##
+quickly#быстро##
+rate#показатель, степень, темп##
+rather#достаточно, весьма##
+react#реагировать, отзываться##
+realize#понимать, осознавать##
+reasonable#разумный, благоразумный##
+recent#недавний, последний##
+recently#недавно##
+recognize#признавать, узнавать##
+reduce#понижать, сокращать##
+reduction#сокращение, понижение##
+refer#упоминать##
+regret#сожалеть##
+regularly#регулярно##
+reject#отклонять, отказывать (ся)##
+related#связанный, родственный##
+relation#связь, родственник##
+relative#родственник; родственница##
+release#освобождать (ся),  отпускать##
+rely#полагаться, зависеть##
+rid#освобождать, избавлять##
+roll#катить (ся),  вращаться##
+roof#крыша##
+rough#грубый##
+rub#тереть (ся) ##
+rubbish#мусор, ерунда##
+run over#переехать, задавить##
+rush#спешка, суета##
+rush#мчаться, торопить##
+share#делить (ся), разделять##
+sharp#острый, резкий##
+shrink#уменьшать (ся), сокращать (ся)##
+sight#вид, зрение, достопримечательность##
+sink#тонуть, погружаться, опускаться##
+sink#раковина##
+skill#умение, навык##
+slice#ломтик##
+slice#нарезать ломтиками##
+slide#скользить, засовывать##
+slip#поскользнуться##
+slowly#медленно##
+solve#решать, разрешать##
+somehow#так или иначе, как-нибудь##
+soon#скоро, вскоре##
+spare#запасной, лишний##
+split#раскалывать (ся), разделять (ся)##
+spot#место, пятно##
+stare#вглядываться, уставиться##
+stay#оставаться, останавливаться##
+steady#устойчивый, постоянный##
+steam#пар##
+still#до сих пор, все еще, по-прежнему##
+strange#странный, незнакомый##
+stranger#незнакомец##
+stretch#тянуть (ся), растягивать (ся)##
+strict#строгий##
+successful#удачный, успешный##
+suddenly#вдруг, внезапно##
+suffer#страдать##
+suggest#предлагать, советовать##
+suggestion#предложение, совет##
+suit#подходить (одежда, например)##
+suppose#допускать, полагать##
+sure#уверенный##
+take#брать##
+take away#убирать, отнимать##
+take back#отдавать, возвращать##
+take off#снимать одежду, взлетать##
+take out#вынимать, брать с собой##
+take over#принимать дела от другого##
+talk into#уговорить, убедить##
+talk out of#отговорить, разубедить##
+tap#(по) стучать, (по) хлопать##
+taste#пробовать (на вкус)##
+tear#рвать (ся), отрывать (ся) ##
+temper#характер, настроение##
+tend#иметь тенденцию, стремиться##
+think over#обдумывать##
+think through#продумывать##
+today#сегодня, в наши дни##
+tonight#сегодня вечером##
+too#слишком, тоже##
+train#тренировать (ся), обучать (ся)##
+trap#капкан, ловушка, обман##
+trap#задерживать, останавливать##
+trick#обман, хитрость##
+trick#обманывать, надувать##
+turn#очередь, поворот##
+turn#поворачивать (ся)##
+turn into#превращать во (что-л.)##
+turn off#сворачивать, выключать##
+turn on#включать##
+unable#неспособный##
+unfair#несправедливый##
+unhappy#несчастливый, несчастный##
+union#объединение, союз##
+unite#соединять (ся), объединять (ся)##
+unless#если не, пока не##
+unlikely#маловероятный, невероятно##
+unlucky#несчастливый, неудачный##
+unpleasant#неприятный, противный##
+until#до, (до тех пор) пока (не)##
+unusual#необычный, редкий##
+urgent#срочный, неотложный##
+used#подержанный, использованный##
+valuable#ценный, полезный##
+vanish#исчезать, пропадать##
+variety#разновидность, разнообразие##
+various#различный, разнообразный##
+violence#жестокость, насилие##
+wet#мокрый##
+wheel#колесо##
+whisper#шептать##
+whistle#свистеть##
+willing#готовый (сделать что-л.)##
+wipe#вытирать, стирать##
+wire#проволока, провод##
+wise#мудрый, благоразумный##
+within#внутри, в пределах##
+wonder#удивляться, интересоваться##
+worried#озабоченный##
+worry #беспокоить (ся)##
+worse#худший##
+worst#наихудший##
+worth#стоящий##
+wrap#заворачивать,  завертывать##
+A long time ago#Давно##
+A round trip ticket#Билет в два конца##
+a while back / a while ago#некоторое время назад, раньше##
+about time#пора, самое время##
+Absolutely correct#Cовершенно верно; абсолютно правильно##
+According to#В соответствии с##
+after a while#через некоторое время##
+After all#в итоге; все-таки##
+ahead of time#заранее##
+all day long#целый день##
+all the same#без разницы, все равно##
+All the way#Всю дорогу; полностью; от начала до конца##
+And so on / and so forth#и так далее##
+Any questions?#Какие-либо вопросы?##
+Are you ok?#Вы в порядке?##
+Are you thirsty?#Ты хочешь пить?##
+As a result#В результате##
+As a rule#обычно, как правило##
+As far / as to#что касается##
+As I said before#как я уже говорил##
+As well as#А также; а также и; так же как##
+at a time#в то время, когда##
+at any price#любой ценой##
+At every step#На каждом шагу##
+At first#Сначала, поначалу##
+At first sight#С первого взгляда##
+At last#Наконец; в конце концов##
+At least#По меньшей мере, по крайней мере##
+At once#Сразу; тотчас, одновременно##
+at one time#одно время##
+At present#В настоящее время; на данный момент##
+at that point#в этот момент##
+at that rate#такими темпами / при таких раскладах##
+At the beginning#В начале##
+at the moment#в данный момент##
+at the point of#в момент чего-либо##
+at the same time#в то же время##
+at the worst possible time#в самом неподходящее время##
+At what time?#Во сколько?##
+Back and forth#Вперёд и назад, туда и сюда##
+Be like#Быть как; быть похожим##
+Both… and …#И… и; Как… так и##
+By accident#Случайно; нечаянно##
+by all means / by any means#любым способом, во что бы то ни стало##
+By chance#Случайно##
+By far#Определенно##
+By mistake#По ошибке##
+Can I help you?#Могу я вам помочь?##
+Can you help me?#Вы не могли бы мне помочь?##
+Can you show it on the map, please?#Не могли бы вы показать это на карте, пожалуйста?##
+Can you show me on the map?#Вы можете показать мне на карте?##
+Can you spare me a moment?#Можете уделить мне минутку?##
+Can you write it down?#Не могли бы вы записать это?##
+Clear away#Убирать со стола##
+Come in#Входите##
+Continue past the post office#Проходите (проезжайте) мимо здания почты##
+Continue straight ahead#Продолжайте идти (ехать) прямо##
+Could you do me a favor?#Можешь оказать мне услугу?##
+Could you please repeat that?#Повторите, пожалуйста##
+Could you please spell that?#Продиктуйте по буквам, пожалуйста##
+Could you tell me how to get to the ...?#Вы не подскажете, как добраться до…?##
+Definitely#Определенно, непременно##
+Did I get you right?#Я правильно вас понял?##
+Do you know where the ... is?#Вы не знаете, где находится…?##
+Do you mind my smoking?#Не возражаете, если я закурю?##
+Do you take credit cards?#Вы принимаете кредитные карточки?##
+Does anybody here speak English?#Кто-нибудь здесь говорит по-английски?##
+Don’t mention it#не стоит благодарности##
+Don’t worry about it!#Не волнуйтесь об этом!##
+Don't be late#Не опаздывай##
+Don't do that#Не делай это##
+Don't worry#Не беспокойтесь##
+Either… or#Или… или; Либо… либо##
+Enough of it#Довольно об этом##
+Entrance#Вход##
+Everybody lies#Все врут##
+Everyone knows it#Все знают это##
+Everything goes well#Всё идет хорошо##
+Everything is ready#Всё готово##
+Exactly so#Именно так##
+Except for#За исключением, кроме##
+Fall asleep#Заснуть, уснуть##
+Feel good#Чувствовать себя хорошо##
+Fill in the form, please!#Заполните бланк (анкету), пожалуйста!##
+First of all/ above all#прежде всего##
+Follow me#Следуйте за мной##
+for a change#для разнообразия##
+For a long time#В течение долгого времени##
+Forget it#Не обращай внимания, это ерунда##
+From here to there#От сюда до туда##
+Get rid of#Избавиться от##
+Give someone a lift#Подвезти##
+Give me the bill, please!#Принесите мне счет, пожалуйста!##
+Give me the menu, please#Дайте мне меню, пожалуйста##
+Go past#Пройти (проехать) мимо##
+Go straight ahead#Идите прямо##
+Hang out#Отвисать; тусоваться##
+hardest part about something#самое сложное в чём-либо##
+Have a good time#Желаю хорошо провести время##
+Have a good trip#Желаю хорошей поездки##
+Have a good weekend#Хороших выходных##
+Have a nice day#хорошего дня##
+Have breakfast#Завтракать##
+Have dinner#Ужинать##
+Have lunch#Обедать##
+Have you got a minute?#У вас есть минутка?##
+Have you met?#Вы знакомы?##
+Here you are#Вот, пожалуйста##
+He's right#Он прав##
+How about…#Как насчёт…##
+How are they getting on?#Как они поживают?##
+How are things?#Как оно?##
+How are you doing?#Как дела?##
+How are you feeling?#Как ты себя чувствуешь?##
+How are you?#Как дела?##
+How come?#Как так получилось? Как так?##
+How did it come about?#Как так получилось?##
+How did it work out?#Как всё прошло?##
+How do I get there?#Как мне туда добраться?##
+How do I use this?#Как мне это использовать?##
+How do you like it here?#Как Вам здесь нравится?##
+How do you pronounce this word?#Как произносится это слово?##
+How do you say ... in English?#Как по-английски будет ...?##
+How do you spell that?#Как это пишется?##
+How do you pronounce this word?#Как произносится это слово?##
+How far is the…?#Как далеко до…?##
+How is it going?#Как идут дела?##
+How is your family?#Как твоя/ ваша семья?##
+How much is it?#Сколько это стоит?##
+How was it?#Ну как? (Как все прошло?)##
+How would you like to pay?#Как вы хотите расплатиться?##
+How's life?#Как жизнь?##
+How's the weather?#Как погода?##
+hurry up!#поторапливайся##
+I agree with you#Я с вами согласен##
+I am afraid you are wrong#Боюсь, что вы не правы##
+I believe so / suppose so#Полагаю, что это так##
+I don’t agree…#Я не согласен##
+I don’t care#Меня не волнует, Мне всё равно##
+I don’t think so#Я так не думаю; вряд ли##
+I don't like it#Мне это не нравится##
+I don't mind#Я не против##
+I doubt it#Сомневаюсь##
+I have a cold#У меня простуда##
+I have a headache#У меня болит голова##
+I have lost my way#Я потерял дорогу; я запутался##
+I have no idea#Понятия не имею##
+I have the flu#У меня грипп##
+i mean it!#я серьезно##
+I see your point, but…#Я понимаю вашу точку зрения, но…##
+I speak a little English#Я немного говорю по-английски##
+I think I’ll pass#Лучше без меня##
+I think so#Я так думаю##
+I wish I could#К сожалению, не могу##
+i wish i knew#хотел бы я знать##
+I agree with you#согласен с вами##
+I’ll be back#я еще вернусь ##
+I’m afraid so#боюсь, что так##
+I’m in / I’m game#Я «за» (в ответ на предложение куда-либо сходить или что-либо сделать)##
+I’m lost#Я заблудился##
+I’m sorry, I can’t.#Простите, не могу.##
+I’m sorry, I didn’t catch you#Простите, я не расслышал вас##
+I’ve burnt myself#Я обжегся##
+I’ve cut myself#Я порезался##
+I’ve hurt my…#Я повредил…##
+I’ve lost my…#Я потерял…##
+I'd like to buy a cup of tea, please#Я хотел бы купить чашку чая, пожалуйста##
+If I remember rightly / If I recall correctly#если я правильно помню##
+If I’m not mistaken#если я не ошибаюсь##
+I'm bored#Мне скучно##
+I'm fine, thanks#Я в порядке, спасибо##
+I'm hungry#Я голоден##
+I'm not against it#Я не против этого##
+I'm thirsty#Я хочу пить##
+I'm tired#Я устал##
+In a word#в двух словах##
+In brief#Вкратце; в нескольких словах##
+in every sense of the word#в полном смысле слова##
+In fact#На самом деле##
+In front of#Перед##
+In general#В общем##
+in his day#в свое время##
+In my opinion…#По моему мнению##
+In other words#Другими словами; иначе говоря##
+in place#на своём месте##
+In short / in a word / in brief#Короче говоря; вкратце##
+In the end#В конце; в конце концов; в итоге##
+in the meantime#тем временем##
+in time / just in time#вовремя / как раз вовремя##
+In touch#Быть в курсе; поддерживать связь##
+in vain#без толку, напрасно, тщетно##
+Is anything wrong?#Что-то не так?##
+Is everyone ok?#Все целы?##
+Is everything ok?#Все в порядке?##
+Is it possible?#Это возможно?##
+Is it raining?#Идет дождь?##
+Is that OK?#Это нормально?##
+It can hardly be so#Вряд ли это так##
+it can wait#это может подождать##
+it could have been worse#могло быть и хуже##
+It doesn’t matter#Это не важно##
+It doesn't make sense#Это не имеет смысла##
+It doesn't prove a thing#Это ничего не доказывает##
+It seems to me…#Мне кажется…##
+It’s a great idea!#Отличная идея!##
+It’s sunny#Светит солнце; солнечно##
+it's all the same to me#мне без разницы##
+it's beside the point#это не относится к вопросу##
+It's correct#Это правильно##
+it's new to me#первый раз слышу##
+It's not far from here#Это не очень далеко отсюда##
+It's not true#Это не правда##
+It's ok или That's ok#все в порядке##
+It's out of place#Это неуместно##
+It's raining#Идет дождь##
+It's snowing#Идет снег##
+It's too expensive#Это слишком дорого##
+It's up to you#Решать тебе; зависит от тебя##
+it's waste of time#это пустая трата времени##
+I've been mugged#Меня ограбили##
+I've been there#Я был там##
+Just a moment#Один момент##
+Just a while ago#Совсем недавно##
+just in case#на всякий случай##
+Keep calm and carry on#Сохраняй спокойствие и продолжай##
+Keep going for another…#Пройдите еще…##
+Keep in touch#Поддерживать связь; быть на связи##
+Let it be#Пусть это будет так##
+Let me introduce you to my husband (wife)#Позвольте мне познакомить вас с моим мужем (женой)##
+Let us hope for the best.#Будем надеяться на лучшее.##
+let's clear it up#давай разберемся##
+let's drop the subject#давай оставим эту тему##
+Little by little#Мало-помалу; постепенно##
+Lose weight#Худеть; терять вес##
+Make a face#Строить гримасу, корчить рожу##
+May I ask you a question?#Можно задать вам вопрос?##
+May I borrow your pen?#Я могу позаимствовать вашу ручку?##
+May I help you?#Могу ли я вам помочь?##
+May I use your phone?#Я могу воспользоваться вашим телефоном?##
+Most likely#Скорее всего; вероятно; очень похоже на то##
+Most unlikely#непохоже на то; Вряд ли##
+Never mind#Не беспокойся, это не важно, не страшно##
+Next time lucky#В следующий раз повезёт##
+Next to#Рядом с, около##
+No big deal#Ничего страшного, всё в порядке##
+No doubt#Нет сомнений; несомненно##
+No matter#Не имеет значения; не важно##
+No problem / that’s ok / don’t worry about it#Все в порядке, нет проблем, не беспокойтесь об этом##
+No doubt#несомненно##
+Not a very good idea#Не самая хорошая идея##
+Not very well#Не очень хорошо##
+Oh, that. That explains it.#Вот оно что, это все объясняет.##
+On the contrary#наоборот##
+On the go#В движении; в работе##
+On the left#Налево##
+On the right#Направо##
+On time#Вовремя; без опозданий##
+on your left#слева##
+on your right#справа##
+Once a month#Раз в месяц##
+Once in a while#Изредка, иногда##
+out of date#устаревший##
+Pay attention#Обращать внимание##
+Perhaps#Возможно, может быть##
+play for time#тянуть время##
+Please speak more slowly#Пожалуйста, говорите помедленнее##
+point of view#точка зрения##
+pro and con#за и против##
+Probably#вероятно##
+Pull#на себя##
+Pure and simple#Просто и ясно##
+Push#от себя##
+have run out of time#не успевать##
+See you later#До скорого##
+See you soon#До скорой встречи##
+See you tomorrow#До завтра##
+So what?#Ну и что?##
+sooner or later#рано или поздно##
+Sorry, I wasn’t listening.#Извините, я прослушал.##
+Start the car#Заводи машину##
+Stay away#Держаться подальше##
+take time#занимать время##
+talk to you later#поговорим с тобой позже##
+Thank you anyway#в любом случае спасибо##
+Thank you in advance#Заранее спасибо##
+That is why#Вот почему; поэтому##
+That’s ok или It’s ok#все в порядке##
+That's alright#Все в порядке##
+That's enough#Этого достаточно##
+that's not the point#это не относится к вопросу##
+That's right#Да, верно##
+That's very well, but#Это всё очень хорошо, но…##
+That's wrong#Это неправильно##
+The building is on fire#Здание горит##
+The thing is#дело в том, что##
+there is no hurry#спешить некуда##
+There's been an accident#Произошел несчастный случай##
+There's no way#Нет никакого способа##
+Things happen.#Всякое бывает.##
+till next time#до следующего раза##
+time is up#время вышло##
+time will tell#время покажет##
+Try on#Примерять##
+Turn around#Повернись кругом##
+Turn left#Поверните налево##
+Turn left at the crossroads#На перекрестке поверните направо##
+Turn right#Поверните направо##
+What are you up to?#Чем занимаешься?##
+What can I do for you?#Чем могу быть полезен?##
+What city are you from?#С какого вы города?##
+What country are you from?#Из какой вы страны?##
+What do you do?#Чем вы занимаетесь?##
+What do you mean?#Что вы имеете в виду?##
+What does he look like?#Как он выглядит?##
+what for?#зачем?##
+What happened?#Что случилось?##
+What have you been up to?#Чем занимался все это время?##
+What it takes to#Что нужно для того, чтобы##
+What kind of man is he?#Что он за человек?##
+What shall I do?#Что мне делать?##
+What time is it?#Сколько времени?##
+What would you like to eat?#Что бы ты хотел поесть?##
+What’s going on?/What’s happening?#Что происходит?##
+What’s happened?#Что случилось?##
+What’s the matter?#В чем дело?##
+What’s the trouble?#В чем проблема?##
+What’s this called?#Как это называется?##
+What’s this?#Что это?##
+What’s up?#Что случилось?##
+Where are you going?#Куда ты идешь?##
+Where can I buy… ?#Где я могу купить?##
+Wish you were here#Жаль, что тебя здесь нет##
+Word for word#Слово в слово; буквально##
